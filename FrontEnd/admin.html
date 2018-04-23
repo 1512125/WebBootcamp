@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DL shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../public/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../public/css/admin.css" />
+    <script src="../public/js/jquery-3.3.1.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/admin.js"></script>
+</head>
+<body>
+    <header>
+        <img src="../public/img/logo.png" alt="Logo" id="logo"></img>
+        <ul>
+            <a href="#"><img class="icon" src="../public/img/admin/icon-admin.png" alt="admin"></a>
+            <a href="#">Admintrator</a>
+        </ul>
+    </header>
+
+    <nav>
+        <ul>
+            <a href="#">Tổng quan</a>
+            <a href="#">Đơn hàng</a>
+            <a href="#">Khách hàng</a>
+            <a href="#">Mẫu áo</a>
+            <a href="#">Hình mẫu</a>
+            <a href="#">Viết bài</a>
+        </ul>
+    </nav>
+
+    <h2 id="title">Tổng quan</h2>
+
+    <section id="sumary">
+        <form class="form-inline">
+                <label for="ifrom">From: </label>
+                <input type="text" class="form-control" id="ifrom" placeholder="dd/mm/yyyy">
+                <img class="icon" src="../public/img/admin/icon-calendar.png" alt="">
+                <label for="ifrom">To: </label>                    
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="dd/mm/yyyy">
+                <img class="icon" src="../public/img/admin/icon-calendar.png" alt="">
+                <button type="submit" class="btn btn-secondary">Xem doanh thu</button>
+        </form>
+        <section id="graph">
+            <img src="../public/img/admin/graph.png" alt="graph">
+        </section>
+        <section id="content">
+            <h5>Tổng chi:</h5>
+            <p>38.000 $</p>
+            <h5>Tổng thu:</h5>
+            <p>56.300 $</p>
+            <h5>Thu nhập</h5>
+            <p>12.000 $</p>
+            <h5>Chỉ số tăng trưởng:</h5>
+            <p>1.25</p>
+        </section>
+    </section>
+
+    <section id="inventory">
+        <h2>Danh sách sản phẩm gần hết hàng</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Loại</th>
+                <th scope="col">Giá bán</th>
+                <th scope="col">Sô lượng</th>
+                <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                    <td>Áo thun trơn</td>
+                    <td>Áo thun nữ</td>
+                    <td>125,000</td>
+                    <td>2</td>
+                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Áo thun trơn</td>
+                    <td>Áo thun nữ</td>
+                    <td>125,000</td>
+                    <td>2</td>
+                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Áo thun trơn</td>
+                    <td>Áo thun nữ</td>
+                    <td>125,000</td>
+                    <td>2</td>
+                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                </tr>
+                <tr>
+                        <th scope="row">4</th>
+                        <td>Áo thun trơn</td>
+                        <td>Áo thun nam</td>
+                        <td>125,000</td>
+                        <td>4</td>
+                        <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                    </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <ul>
+            <li>
+                <img src="../public/img/icon-maker.png" alt="Maker">
+                <p>256 Nguyễn Văn Cừ,</p>
+                <p>Quận 5, Hồ Chí Minh </p>
+            </li>
+            <li>
+                <img src="../public/img/icon-call.png" alt="Call">          
+                <p>Tel: 0931090956</p>  
+                <p>Tel: 0933147821</p>  
+            </li>
+            <li>
+                <img src="../public/img/icon-mail.png" alt="Mail">   
+                <p>dlstore@gmail.com</p>        
+            </li>
+            <li>
+                <img src="../public/img/icon-copyright.png" alt="Copyright">
+                <p>&copy; DL in VietNam 2018</p>      
+            </li>
+        </ul>
+        <div id="some">
+            <div id="mail">
+                <img src="../public/img/icon-mail1.png" alt="mail">
+            </div>
+            <p>Gửi tin nhắn cho dl.vn</p>
+        </div>
+    </footer>
+</body>
+</html>
