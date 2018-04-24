@@ -41,6 +41,27 @@ header ul a{
     
 }
 
+#bttop {
+    border: 1px solid #4adcff;
+    background: #24bde2;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 35px;
+    right: 0px;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    font-size: 82.5%;
+    font-weight: 900;
+    border-radius:50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    vertical-align: middle;
+    border: 0;
+}
+
+
 .icon{
     width: 30px;
     height: 30px;
@@ -83,7 +104,7 @@ nav ul img{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 500px;
+    min-height: 600px;
     opacity: 1;
     z-index: 20;
     visibility: inherit;
@@ -96,8 +117,8 @@ nav ul img{
 .intro img{
     margin-top: 150px;
     margin-bottom: 20px;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
 
 }
 
@@ -110,11 +131,11 @@ nav ul img{
 }
 
 .intro#s2{
-    background-image: url(../public/images/bg1.jpg);
+    background-image: url(../public/images/home/bg1.jpg);
 }
 
 .intro#s1{
-    background-image: url(../public/images/bg2.jpg);
+    background-image: url(../public/images/home/bg2.jpg);
 }
 
 .intro#s2 a{
@@ -187,19 +208,19 @@ a.product:hover{
 }
 
 a#p1{
-    background-image: url(../public/images/i1.jpeg);    
+    background-image: url(../public/images/product_home/i1.jpeg);    
 }
 
 a#p2{
-    background-image: url(../public/images/i2.png);
+    background-image: url(../public/images/product_home/i2.png);
 }
 
 a#p3{
-    background-image: url(../public/images/i3.jpeg);
+    background-image: url(../public/images/product_home/i3.jpeg);
 }
 
 a#p4{
-    background-image: url(../public/images/i4.png);
+    background-image: url(../public/images/product_home/i4.png);
 }
 
 about{
@@ -207,7 +228,84 @@ about{
     display: block;
     padding-top: 10px;
     text-align: center;
+    margin-bottom: 20px;
 }
+
+#partner
+{
+    margin-bottom: 20px;
+}
+.partner
+{
+    margin: 0 10%;
+    margin-bottom: 20px;
+    min-height: 30px;
+}
+
+p.partner
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.partner ul
+{
+    font-size: 20px;
+    display: inline;
+    overflow-x: auto;
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+.partner ul li
+{
+    float: left;
+    margin-right: 5px;
+    min-height: 120px;
+    width: 15%;
+}
+
+.partner ul li img
+{
+    width: 100%;
+}
+
+#advise
+{
+    clear: both;
+    background: url(../public/images/home/fluid-banner.png);
+    min-height: 500px;
+}
+
+.advise-text
+{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
+    color:white;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.advise-link
+{
+    background: rgba(110, 110, 110, 0.5);
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    color:white;
+    font-size: 1.8em;
+    text-align: center;
+    border-radius: 10%;  
+    box-shadow:5px 5px 5px 5px whitesmoke;
+    min-height: 60px;
+}
+
+.advise-link a{
+    color: white;
+}
+
 
 h3{
     border-bottom: mediumseagreen 5px solid; 
@@ -221,11 +319,12 @@ about p{
 }
 
 about img{
-    width: 70%;
+    width: 50%;
     height: 70%;
 }
 
 footer{
+    clear: both;
     color: white;
     font-weight: 600;
     font-size: 15px;
