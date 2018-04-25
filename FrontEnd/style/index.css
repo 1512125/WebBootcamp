@@ -20,11 +20,6 @@ section {
     margin-top: 45px;
 }
 
-#logo {
-    width: 100px;
-    height: 100px;
-}
-
 header ul {
     list-style: none;
     float: right;
@@ -58,59 +53,6 @@ header ul a {
     -webkit-border-radius: 50%;
     vertical-align: middle;
     border: 0;
-}
-
-.icon {
-    width: 30px;
-    height: 30px;
-}
-
-nav {
-    background-color: snow;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    min-height: 70px;
-    overflow: hidden;
-}
-
-nav ul {
-    float: right;
-    margin-top: 20px;
-}
-
-nav ul a,
-nav ul a:hover {
-    margin-left: 10px;
-    list-style: none;
-    border: red solid 1px;
-    border-radius: 5px;
-    background-color: tomato;
-    width: 110px;
-    height: 45px;
-    float: left;
-    color: white;
-    text-align: center;
-    padding-top: 10px;
-    font-weight: 700;
-    font-size: 16px;
-    font-style: italic;
-}
-
-nav ul img {
-    padding: 5px 0 0 10px;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 10%;
-    padding-right: 10%;
-    z-index: 1000;
 }
 
 .intro {
@@ -327,68 +269,6 @@ about p {
 about img {
     width: 50%;
     height: 70%;
-}
-
-footer {
-    clear: both;
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-    background-color: tomato;
-    height: 220px;
-}
-
-footer ul {
-    padding-top: 10px;
-    list-style: none;
-    height: 170px;
-}
-
-footer li {
-    width: 25%;
-    height: 150px;
-    float: left;
-    border-right: white dashed 2px;
-    padding: 20px 0 0 0;
-    text-align: center;
-}
-
-footer img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-}
-
-footer p {
-    padding: 0;
-    margin: 0;
-}
-
-#some {
-    background-color: rgb(0, 166, 146);
-    border-radius: 5px;
-    border: rgb(0, 166, 146) 1px solid;
-    float: right;
-    margin: 0;
-}
-
-#mail {
-    float: left;
-    background-color: rgb(6, 207, 183);
-    border-radius: 2px;
-}
-
-#mail img {
-    margin: 3px 5px;
-    width: 25px;
-    height: 25px;
-}
-
-#some p {
-    padding: 3px 8px;
-    color: black;
-    float: left;
-    font-size: 14px;
 }
 
 .btn-danger {
