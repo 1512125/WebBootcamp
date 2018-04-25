@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DL shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../public/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../public/css/admin.css" />
-    <script src="../public/js/jquery-3.3.1.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="../public/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="vendor/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style/admin.css" />
+    <script src="vendor/js/jquery-3.3.1.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="javascript/admin.js"></script>
 </head>
 <body>
     <header>
-        <img src="../public/img/logo.png" alt="Logo" id="logo"></img>
+        <img src="public/images/logo.png" alt="Logo" id="logo"></img>
         <ul>
-            <a href="#"><img class="icon" src="../public/img/admin/icon-admin.png" alt="admin"></a>
+            <a href="#"><img class="icon" src="public/images/admin/icon-admin.png" alt="admin"></a>
             <a href="#">Admintrator</a>
         </ul>
     </header>
@@ -37,14 +37,14 @@
         <form class="form-inline">
                 <label for="ifrom">From: </label>
                 <input type="text" class="form-control" id="ifrom" placeholder="dd/mm/yyyy">
-                <img class="icon" src="../public/img/admin/icon-calendar.png" alt="">
+                <img class="icon" src="public/images/admin/icon-calendar.png" alt="">
                 <label for="ifrom">To: </label>                    
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="dd/mm/yyyy">
-                <img class="icon" src="../public/img/admin/icon-calendar.png" alt="">
+                <img class="icon" src="public/images/admin/icon-calendar.png" alt="">
                 <button type="submit" class="btn btn-secondary">Xem doanh thu</button>
         </form>
         <section id="graph">
-            <img src="../public/img/admin/graph.png" alt="graph">
+            <img src="public/images/admin/graph.png" alt="graph">
         </section>
         <section id="content">
             <h5>Tổng chi:</h5>
@@ -78,7 +78,7 @@
                     <td>Áo thun nữ</td>
                     <td>125,000</td>
                     <td>2</td>
-                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                    <td><img src="public/images/admin/icon-edit.png" alt="edit"></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -86,7 +86,7 @@
                     <td>Áo thun nữ</td>
                     <td>125,000</td>
                     <td>2</td>
-                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                    <td><img src="public/images/admin/icon-edit.png" alt="edit"></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -94,7 +94,7 @@
                     <td>Áo thun nữ</td>
                     <td>125,000</td>
                     <td>2</td>
-                    <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                    <td><img src="public/images/admin/icon-edit.png" alt="edit"></td>
                 </tr>
                 <tr>
                         <th scope="row">4</th>
@@ -102,36 +102,318 @@
                         <td>Áo thun nam</td>
                         <td>125,000</td>
                         <td>4</td>
-                        <td><img src="../public/img/admin/icon-edit.png" alt="edit"></td>
+                        <td><img src="public/images/admin/icon-edit.png" alt="edit"></td>
                     </tr>
             </tbody>
         </table>
     </section>
 
+    <h2 id="title">Quản lý đơn hàng</h2>
+
+    <section id="nav">
+        <a href="#">Tất cả</a>
+        <a href="#">Đặt hàng</a>
+        <a href="#">Sản xuất</a>
+        <a href="#">Giao hàng</a>
+        <a href="#">Hoàn thành</a>
+    </section>
+
+    <div class="products">
+        <img src="public/images/i1.jpeg" alt="img">
+        <div class="describe">
+            <a class="title" href="">Áo thun nam</a>      
+            <p>Số lượng: 15</p>
+            <p>Tổng giá: 1.950.000</p>
+            <p>Khách hàng: <a href="#">Customer 2</a></p>
+            <p>Địa chỉ: D2, Bình Thạnh</p>
+            <div class="inline">
+                <p>24/4/2018</p>
+                <p>Tình trạng: Đang sản xuất</p>
+                <a href="#">Chi tiết >></a>
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <img src="public/images/i1.jpeg" alt="img">
+        <div class="describe">
+            <a class="title" href="">Áo thun nam</a>      
+            <p>Số lượng: 15</p>
+            <p>Tổng giá: 1.950.000</p>
+            <p>Khách hàng: <a href="#">Customer 2</a></p>
+            <p>Địa chỉ: D2, Bình Thạnh</p>
+            <div class="inline">
+                <p>24/4/2018</p>
+                <p>Tình trạng: Đang sản xuất</p>
+                <a href="#">Chi tiết >></a>
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <img src="public/images/i1.jpeg" alt="img">
+        <div class="describe">
+            <a class="title" href="">Áo thun nam</a>      
+            <p>Số lượng: 15</p>
+            <p>Tổng giá: 1.950.000</p>
+            <p>Khách hàng: <a href="#">Customer 2</a></p>
+            <p>Địa chỉ: D2, Bình Thạnh</p>
+            <div class="inline">
+                <p>24/4/2018</p>
+                <p>Tình trạng: Đang sản xuất</p>
+                <a href="#">Chi tiết >></a>
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <img src="public/images/i1.jpeg" alt="img">
+        <div class="describe">
+            <a class="title" href="">Áo thun nam</a>      
+            <p>Số lượng: 15</p>
+            <p>Tổng giá: 1.950.000</p>
+            <p>Khách hàng: <a href="#">Customer 2</a></p>
+            <p>Địa chỉ: D2, Bình Thạnh</p>
+            <div class="inline">
+                <p>24/4/2018</p>
+                <p>Tình trạng: Đang sản xuất</p>
+                <a href="#">Chi tiết >></a>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="title">Quản lý khách hàng</h2>
+
+    <form id="search" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="input" class="sr-only">Search</label>
+          <input type="text" class="form-control" id="input" placeholder="Search">
+        </div>
+        <img class="icon" src="public/images/icon-search.png" alt="">
+    </form>
+
+    <section id="customer">
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+        <div class="customer">
+            <img src="public/images/admin/customer.png" alt="">
+            <div class="decribe">
+                <p>MSKH: C01240</p>
+                <p>Tên: Nguyễn Văn An</p>
+                <p>Địa chỉ: Hà Nội</p>
+                <p>Email: something@gmail.com</p>
+                <p>Phone: 01643614198</p>
+                <a href="">Chi tiết >></a>
+            </div>
+        </div>
+    </section>
+    
+    <h2 id="title">Quản lý mẫu áo</h2>
+
+    <section id="form">
+        <form id="search" class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="input" class="sr-only">Search</label>
+              <input type="text" class="form-control" id="input" placeholder="Search">
+            </div>
+            <img class="icon" src="public/images/icon-search.png" alt="">
+            <a href="#"></a>
+        </form>
+    
+        <section id="nav">
+            <a href="#">Tất cả</a>
+            <a href="#">Áo nam</a>
+            <a href="#">Áo nữ</a>
+            <a href="#">Áo cặp</a>
+            <a href="#">Áo nhóm</a>
+        </section>
+    </section>
+    
+
+    <section id="fashion">
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+        <div class="fashion">
+            <img id="icon1" src="public/images/i1.jpeg" alt="">
+            <p>Áo nữ abc</p>
+            <p style="color: #ff8a00">Giá: 120.000 vnđ</p>
+            <img src="public/images/admin/icon-info.png" alt="info">
+            <img src="public/images/admin/icon-edit.png" alt="edit">
+            <img src="public/images/admin/icon-del.png" alt="del">                
+        </div>
+    </section>
+
     <footer>
         <ul>
             <li>
-                <img src="../public/img/icon-maker.png" alt="Maker">
+                <img src="public/images/icon-maker.png" alt="Maker">
                 <p>256 Nguyễn Văn Cừ,</p>
                 <p>Quận 5, Hồ Chí Minh </p>
             </li>
             <li>
-                <img src="../public/img/icon-call.png" alt="Call">          
+                <img src="public/images/icon-call.png" alt="Call">          
                 <p>Tel: 0931090956</p>  
                 <p>Tel: 0933147821</p>  
             </li>
             <li>
-                <img src="../public/img/icon-mail.png" alt="Mail">   
+                <img src="public/images/icon-mail.png" alt="Mail">   
                 <p>dlstore@gmail.com</p>        
             </li>
             <li>
-                <img src="../public/img/icon-copyright.png" alt="Copyright">
+                <img src="public/images/icon-copyright.png" alt="Copyright">
                 <p>&copy; DL in VietNam 2018</p>      
             </li>
         </ul>
         <div id="some">
             <div id="mail">
-                <img src="../public/img/icon-mail1.png" alt="mail">
+                <img src="public/images/icon-mail1.png" alt="mail">
             </div>
             <p>Gửi tin nhắn cho dl.vn</p>
         </div>

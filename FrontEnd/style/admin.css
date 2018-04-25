@@ -43,7 +43,7 @@ header ul a{
 }
 
 nav{
-    background-color: snow;
+    background-color: white;
     padding: 10px 10px;
     height: 70px;
 }
@@ -75,6 +75,7 @@ nav ul img{
 }
 
 #title{
+    clear: both;
     margin: 20px 5% 30px;
     color: #009688;
     font-size: 32px;
@@ -125,7 +126,136 @@ nav ul img{
     padding-bottom: 20px;
 }
 
+#nav{
+    margin: 0 10%;
+    list-style: none;
+    height: 80px;
+}
+
+#nav a{
+    border-left: black 1px solid;
+    float: left;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.products{
+    margin: 0 10%;
+    height: 300px;
+}
+
+.products img{
+    float: left;
+    width: 16%;
+    margin: 0 2%;
+}
+
+.describe{
+    float: left;
+    height: 100px;
+    width: 80%;
+}
+
+a.title{
+    font-size: 32px;
+}
+
+.describe p{
+    margin: 3px;
+    font-size: 20px;
+}
+
+.inline{
+    border-top: rgb(80, 80, 80) 1px solid;
+    border-bottom: rgb(80, 80, 80) 1px solid;
+    padding: 2px 0 39px 0;
+    height: 35px;
+}
+
+.inline p{
+    border-right: black 1px solid;
+    padding: 0px 10px;
+    float: left;
+}
+
+.inline a{
+    float: right;
+    font-size: 20px;
+}
+
+#input{
+    margin: 10px 0 0 90px;
+}
+
+#customer{
+    margin: 0 10%;
+}
+
+.customer{
+    width: 50%;
+    float: left;
+    margin: 40px 0;
+}
+
+.customer img{
+    width: 30%;
+    float: left;
+}
+
+.customer .decribe{
+    float: left;
+    margin: 0px 5%;
+    width: 60%;
+}
+
+.customer a{
+    border-bottom: darkgray 1px solid;
+    display: block;
+}
+
+#form form{
+    float: left;
+}
+
+#form #nav{
+    margin: 16px 0 0 33px;    
+    float: left;
+}
+
+#fashion{
+    clear: both;
+    margin: 0 5%;
+}
+
+.fashion{
+    text-align: center;
+    width: 16%;
+    margin: 20px 2%;
+    float: left;
+}
+
+.fashion img{
+    width: 17%;
+    max-width: 35px;
+}
+
+.fashion p{
+    margin: 0;
+}
+
+.option{
+    float: left;
+    text-align: center;
+    align-items: center;
+}
+
+#icon1{
+    width: 100%;
+    max-width: 200px;        
+}
+
 footer{
+    clear: both;
     color: white;
     font-weight: 600;
     font-size: 15px;
