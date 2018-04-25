@@ -1,9 +1,8 @@
-$
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Topic</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,21 +10,26 @@ $
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../style/nav.css">
     <link rel="stylesheet" href="../../style/footer.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style/topic.css">
+    <link rel="stylesheet" href="../../style/contact.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
     <div style="margin-bottom: 10px;">
         <nav id="navbar">
-            <a href="../index.html"><img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
+            <a href="../../index.html">
+                <img src="../../public/images/logo/logo.png" alt="Logo" id="logo"></img>
             </a>
             <ul>
-                <a href="#">In áo thun</a>
-                <a href="shop.html">Shop</a>
+                <a href="../printTshirt.html">In áo thun</a>
+                <a href="../shop.html">Shop</a>
                 <a href="#">Design</a>
                 <a href="#">Information</a>
-                <img src="../public/images/icon/icon-search.png" alt="Search" class="icon">
+                <img src="../../public/images/icon/icon-search.png" alt="Search" class="icon">
             </ul>
         </nav>
     </div>
@@ -33,15 +37,164 @@ $
     <nav aria-label="breadcrumb">
         <p>Mẫu áo nam Milano</p>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">In áo thun</li>
+            <li class="breadcrumb-item">
+                <a href="../index.html">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="../printTshirt.html">In áo thun</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Mẫu áo nam</li>
         </ol>
     </nav>
+
+    <div class="container">
+        <div class="intro">
+            <img src="../../public/images/Topic/1.jpg" alt="Mẫu áo nam">
+            <p>Mẫu áo nam</p>
+            <div id="carouselId" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselId" data-slide-to="1"></li>
+                    <li data-target="#carouselId" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="../../public/images/topic/1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../public/images/topic/2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../public/images/topic/1.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="product">
+                <p>♥ Một số mẫu in thực hiện tại dl.vn:</p>
+                <img src="../../public/images/topic/3.png">
+                <p>
+                    Nếu vẫn chưa có mẫu in áo ưng ý, hoặc cần hỗ trợ chỉnh sửa, sắp xếp hình ảnh,… hãy liên hệ ngay với dl.vn hoặc để lại thông
+                    tin bên dưới, chúng tôi rất vui khi được hỗ trợ cho bạn.
+                </p>
+            </div>
+        </div>
+        <div class="container contact">
+            <div class="col-5 contact-left">
+                <p>
+                    <b>Liên hệ ngay với chúng tôi để nhận ưu đãi</b>
+                </p>
+                <p>Vui lòng gửi thông tin in áo thun vào mẫu bên cạnh, dl.vn sẽ chủ động liên hệ lại để hỗ trợ</p>
+                <a href="#">
+                    <img src="../../public/images/icon/icon-mail.png" alt="">
+                    <p>LIÊN HỆ VỚI DL.VN</p>
+                </a>
+            </div>
+            <div class="col-6 contact-right">
+                <form>
+                    <input name="name" type="text" required placeholder="Tên của bạn *">
+                    <input name="phone" type="text" required placeholder="Số điện thoại *">
+                    <input name="mail" type="email" required placeholder="Địa chỉ Email">
+                    <textarea name="opinion" id="" cols="30" rows="5" placeholder="Bạn muốn bao nhiêu áo thun và yêu cầu in như thế nào?"></textarea>
+                    <button>Gửi</button>
+                </form>
+                <p style="color: white; margin-top: 20px;">
+                    Cảm ơn quý khách đã quan tâm
+                </p>
+            </div>
+        </div>
+        <div class="rating">
+            <div class="start">
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+            </div>
+            <div>
+                <p>Đánh giá bài viết</p>
+            </div>
+        </div>
+
+        <div class="tag">
+            Tags: 
+            <span><a href="../printTshirt.html">Mẫu áo nam</a></span>
+            <span><a href="#">Milano</a></span>
+            <span><a href="../../index.html">dl.vn</a></span>
+            <span><a href="#">công ty</a></span>
+        </div>
+
+        <div class="another">
+            <p>Bài viết liên quan:</p>
+            <div class="row">
+                <div class="col-3" style="text-align: center">
+                    <img src="../../public/images/topic/1.jpg" alt="">
+                    <a href="#">Mẫu áo nam Milano</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li>
+                <img src="../../public/images/icon/icon-maker.png" alt="Maker">
+                <p>256 Nguyễn Văn Cừ,</p>
+                <p>Quận 5, Hồ Chí Minh </p>
+            </li>
+            <li>
+                <img src="../../public/images/icon/icon-call.png" alt="Call">
+                <p>Tel: 0931090956</p>
+                <p>Tel: 0933147821</p>
+            </li>
+            <li>
+                <img src="../../public/images/icon/icon-mail.png" alt="Mail">
+                <p>dlstore@gmail.com</p>
+            </li>
+            <li>
+                <img src="../../public/images/icon/icon-copyright.png" alt="Copyright">
+                <p>&copy; DL in VietNam 2018</p>
+            </li>
+            <li class="left">
+                <a href="https://www.facebook.com/nguyenhuu.datduc">
+                    <img src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/0fdef751204647a3bbd7eaa2827ed4f9.png">
+                </a>
+                <a href="#">
+                    <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/01c3aff52f2a4dffa526d7a9843d46ea.png">
+                </a>
+                <a href="https://www.youtube.com/watch?v=GArJ0EPu77w">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu-social/60/youtube-social-media-128.png">
+                </a>
+            </li>
+        </ul>
+        <div>
+            <div style="float: left; margin-left: 6%">
+                <img src="../../public/images/logo/logo.png">
+            </div>
+            <div id="some">
+                <div id="mail">
+                    <img src="../../public/images/icon/icon-mail1.png" alt="mail">
+                </div>
+                <p>Gửi tin nhắn cho dl.vn</p>
+            </div>
+        </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../../javascript/topic.js"></script>
 </body>
 
 </html>
