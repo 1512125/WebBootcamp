@@ -3,6 +3,12 @@
     margin: 0;
 }
 
+nav p {
+    margin-left: 15px;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
 
 /* 
 .catalog-ordering {
