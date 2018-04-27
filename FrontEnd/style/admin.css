@@ -254,6 +254,19 @@ a.title{
     max-width: 200px;        
 }
 
+.add{
+    float: right;
+    margin-right: 9%;
+    background-color: #009688;
+    border-color: #4188F2;
+    color: white;
+}
+
+#paper{
+    clear: both;
+    margin-top: 130px;
+}
+
 footer{
     clear: both;
     color: white;
