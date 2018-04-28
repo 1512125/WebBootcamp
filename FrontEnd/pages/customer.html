@@ -8,17 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/admin.css" />
-    <script src="../vendor/js/jquery-3.3.1.min.js"></script>
+    <script src="../vendor/js/popper.min.js"></script>
     <script src="../vendor/js/bootstrap.min.js"></script>
-    <script src="../javascript/admin.js"></script>
+    <script src="../vendor/js/jquery-3.3.1.min.js"></script>
+    <script src="../javascript/customer.js"></script>
 </head>
 
 <body>
     <header>
         <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
         <ul>
-            <a href="../index.html"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
-            <a href="../index.html">Admintrator</a>
+            <a href="#"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
+            <a class="dropdown">
+                <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #009688">
+                    Admintrator
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item item" href="../index.html">Sign out</a>
+                </div>
+            </a>
         </ul>
     </header>
 
@@ -38,7 +46,7 @@
     <form id="search" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
           <label for="input" class="sr-only">Search</label>
-          <input type="text" class="form-control" id="input" placeholder="Search">
+          <input type="text" class="form-control" id="input" placeholder="Search" onkeyup="return search()">
         </div>
         <img class="icon" src="../public/images/icon/icon-search.png" alt="">
     </form>
@@ -59,7 +67,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Trần Quốc Bình</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -70,7 +78,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Đào Thị Hương</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -81,7 +89,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Lý Nam Đế</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -92,7 +100,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Hoàng Văn Thụ</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -103,7 +111,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Hồ Con Rùa</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -114,7 +122,7 @@
             <img src="../public/images/admin/customer.png" alt="">
             <div class="decribe">
                 <p>MSKH: C01240</p>
-                <p>Tên: Nguyễn Văn An</p>
+                <p>Tên: Nguyễn Thị Minh Khai</p>
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
@@ -126,27 +134,27 @@
     <footer>
         <ul>
             <li>
-                <img src="../public/images/icon-maker.png" alt="Maker">
+                <img src="../public/images/icon/icon-maker.png" alt="Maker">
                 <p>256 Nguyễn Văn Cừ,</p>
                 <p>Quận 5, Hồ Chí Minh </p>
             </li>
             <li>
-                <img src="../public/images/icon-call.png" alt="Call">          
+                <img src="../public/images/icon/icon-call.png" alt="Call">          
                 <p>Tel: 0931090956</p>  
                 <p>Tel: 0933147821</p>  
             </li>
             <li>
-                <img src="../public/images/icon-mail.png" alt="Mail">   
+                <img src="../public/images/icon/icon-mail.png" alt="Mail">   
                 <p>dlstore@gmail.com</p>        
             </li>
             <li>
-                <img src="../public/images/icon-copyright.png" alt="Copyright">
+                <img src="../public/images/icon/icon-copyright.png" alt="Copyright">
                 <p>&copy; DL in VietNam 2018</p>      
             </li>
         </ul>
         <div id="some">
             <div id="mail">
-                <img src="../public/images/icon-mail1.png" alt="mail">
+                <img src="../public/images/icon/icon-mail1.png" alt="mail">
             </div>
             <p>Gửi tin nhắn cho dl.vn</p>
         </div>

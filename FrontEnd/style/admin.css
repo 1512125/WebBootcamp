@@ -42,6 +42,11 @@ header ul a{
     height: 30px;
 }
 
+.item{
+    font-size: 14px;
+    font-style: normal;
+}
+
 nav{
     background-color: white;
     padding: 10px 10px;
@@ -95,16 +100,12 @@ nav ul img{
     margin-right: 10px;
 }
 
-#graph{
+#chartdiv {
+    width		: 70%;
+    height		: 500px;
+    font-size	: 11px;
     float: left;
-    width: 75%;
-}
-
-#graph>img{
-    width: 100%;
-    margin: 20px 0;
-    max-width: 800px;
-}
+}		
 
 #content{
     float: left;

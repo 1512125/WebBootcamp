@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/admin.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/clothes.css" />
-    <script src="../vendor/js/jquery-3.3.1.min.js"></script>
+    <script src="../vendor/js/popper.min.js"></script>
     <script src="../vendor/js/bootstrap.min.js"></script>
+    <script src="../vendor/js/jquery-3.3.1.min.js"></script>
     <script src="../javascript/partern.js"></script>
 </head>
 
@@ -18,8 +19,15 @@
     <header>
         <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
         <ul>
-            <a href="../index.html"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
-            <a href="../index.html">Admintrator</a>
+            <a href="#"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
+            <a class="dropdown">
+                <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #009688">
+                    Admintrator
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item item" href="../index.html">Sign out</a>
+                </div>
+            </a>
         </ul>
     </header>
 
@@ -40,7 +48,7 @@
         <form id="search" class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <label for="input" class="sr-only">Search</label>
-              <input type="text" class="form-control" id="input" placeholder="Search">
+              <input type="text" class="form-control" id="input" placeholder="Search" onkeyup="return search()">
             </div>
             <img class="icon" src="../public/images/icon/icon-search.png" alt="">
             <a href="#"></a>
@@ -59,77 +67,77 @@
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu xya</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu xaz</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu abc</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu lmx</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu xyb</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu abd</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu bcd</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu azy</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu zyx</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu caz</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
         </div>
         <div class="fashion">
             <img id="icon1" src="../public/images/admin/partern.png" alt="">
-            <p>Mẫu xyz</p>
+            <p>Mẫu mna</p>
             <p style="color: #ff8a00">Giá: 000 vnđ</p>
             <img src="../public/images/admin/icon-info.png" alt="info">
             <img src="../public/images/admin/icon-del.png" alt="del">                
@@ -170,27 +178,27 @@
     <footer>
         <ul>
             <li>
-                <img src="../public/images/icon-maker.png" alt="Maker">
+                <img src="../public/images/icon/icon-maker.png" alt="Maker">
                 <p>256 Nguyễn Văn Cừ,</p>
                 <p>Quận 5, Hồ Chí Minh </p>
             </li>
             <li>
-                <img src="../public/images/icon-call.png" alt="Call">          
+                <img src="../public/images/icon/icon-call.png" alt="Call">          
                 <p>Tel: 0931090956</p>  
                 <p>Tel: 0933147821</p>  
             </li>
             <li>
-                <img src="../public/images/icon-mail.png" alt="Mail">   
+                <img src="../public/images/icon/icon-mail.png" alt="Mail">   
                 <p>dlstore@gmail.com</p>        
             </li>
             <li>
-                <img src="../public/images/icon-copyright.png" alt="Copyright">
+                <img src="../public/images/icon/icon-copyright.png" alt="Copyright">
                 <p>&copy; DL in VietNam 2018</p>      
             </li>
         </ul>
         <div id="some">
             <div id="mail">
-                <img src="../public/images/icon-mail1.png" alt="mail">
+                <img src="../public/images/icon/icon-mail1.png" alt="mail">
             </div>
             <p>Gửi tin nhắn cho dl.vn</p>
         </div>
