@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/admin.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../style/customer.css" />
     <script src="../vendor/js/popper.min.js"></script>
     <script src="../vendor/js/bootstrap.min.js"></script>
     <script src="../vendor/js/jquery-3.3.1.min.js"></script>
@@ -60,7 +61,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(1)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -71,7 +72,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(2)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -82,7 +83,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(3)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -93,7 +94,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(4)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -104,7 +105,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(5)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -115,7 +116,7 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(6)" href="#">Chi tiết >></a>
             </div>
         </div>
         <div class="customer">
@@ -126,35 +127,85 @@
                 <p>Địa chỉ: Hà Nội</p>
                 <p>Email: something@gmail.com</p>
                 <p>Phone: 01643614198</p>
-                <a href="">Chi tiết >></a>
+                <a onclick="return edit(7)" href="#">Chi tiết >></a>
             </div>
         </div>
     </section>
-  
+
+    <div class="overlay edit-customer" style="display: none;">
+        <div class="login-wrapper">
+            <div class="login-content">
+                <a onclick="return exit()" class="close">x</a>
+                <h3>Khách hàng</h3>
+                <form>
+                <div class="image">
+                    <img src="../public/images/admin/none.jpg" alt="none">
+                    <input type="file" name="mf" id="mf">
+                    <br>
+                    <br>
+                    <label for="mu">URL: </label>
+                    <input type="url" name="mu" id="mu">
+                    <br>
+                </div>
+                <div id="form">
+                    <label for="code">Mã:</label>
+                    <input class="text" type="text" name="code" id="code"><br>
+                    <label for="name">Tên:</label>
+                    <input class="text" type="text" name="name" id="name"><br>
+                    <label for="addr">Địa chỉ:</label>
+                    <input type="text" name="addr" id="addr">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" name="phone" id="phone">
+                    <label for="decribe">Ghi chú: </label><br>
+                    <textarea type="text" name="decribe" id="decribe"></textarea><br>
+                    <button id="change" type="submit" class="btn btn-info">Thay đổi</button>
+                    <button id="del" type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <ul>
             <li>
-                <img src="../public/images/icon/icon-maker.png" alt="Maker">
+                <img src="public/images/icon/icon-maker.png" alt="Maker">
                 <p>256 Nguyễn Văn Cừ,</p>
                 <p>Quận 5, Hồ Chí Minh </p>
             </li>
             <li>
-                <img src="../public/images/icon/icon-call.png" alt="Call">          
+                <img src="public/images/icon/icon-call.png" alt="Call">          
                 <p>Tel: 0931090956</p>  
                 <p>Tel: 0933147821</p>  
             </li>
             <li>
-                <img src="../public/images/icon/icon-mail.png" alt="Mail">   
+                <img src="public/images/icon/icon-mail.png" alt="Mail">   
                 <p>dlstore@gmail.com</p>        
             </li>
             <li>
-                <img src="../public/images/icon/icon-copyright.png" alt="Copyright">
+                <img src="public/images/icon/icon-copyright.png" alt="Copyright">
                 <p>&copy; DL in VietNam 2018</p>      
             </li>
+            <li class="left">
+                <a href="https://www.facebook.com/nguyenhuu.datduc">
+                    <img src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/0fdef751204647a3bbd7eaa2827ed4f9.png">
+                </a>
+                <a href="#">
+                    <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/01c3aff52f2a4dffa526d7a9843d46ea.png">
+                </a>
+                <a href="https://www.youtube.com/watch?v=GArJ0EPu77w">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu-social/60/youtube-social-media-128.png">
+                </a>
+            </li>
         </ul>
+        <div id="logo- end">
+                <img src="public/images/logo/logo.png">
+        </div>
         <div id="some">
             <div id="mail">
-                <img src="../public/images/icon/icon-mail1.png" alt="mail">
+                <img src="public/images/icon/icon-mail1.png" alt="mail">
             </div>
             <p>Gửi tin nhắn cho dl.vn</p>
         </div>

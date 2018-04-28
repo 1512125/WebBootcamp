@@ -52,7 +52,7 @@ div#form{
     width: 50%;
 }
 
-div#form>input.text, div#form>input.number{
+div#form>input{
     width: 75%;
     float: right;
 }
