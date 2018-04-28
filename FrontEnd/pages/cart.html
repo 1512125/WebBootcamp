@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Cart</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../style/nav.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/cart.css">
+    <link rel="stylesheet" href="../style/contact.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div style="margin-bottom: 10px;">
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
+            </a>
+            <ul>
+                <a href="#">In áo thun</a>
+                <a href="shop.html">Shop</a>
+                <a href="#">Design</a>
+                <a href="#">Information</a>
+                <img src="../public/images/icon/icon-search.png" alt="Search" class="icon">
+            </ul>
+        </nav>
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <p>Cart</p>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="../index.html">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="shop.html">Shop</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="shop.html">Áo thun cổ tròn</a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">Cart</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+        <p>Bạn có
+            <span>
+                <b>1</b>
+            </span> sản phẩm trong giỏ hàng</p>
+        <hr>
+        <table class="cart-detail">
+            <colgroup>
+                <col style="width: 200px">
+                <col style="width: 500px">
+                <col style="width: 200px">
+                <col style="width: 200px">
+                <col style="width: 200px">
+            </colgroup>
+            <tr>
+                <th>
+                    Sản phẩm
+                </th>
+                <th>
+                    Mô tả
+                </th>
+                <th>
+                    Giá bán
+                </th>
+                <th>
+                    Số lượng
+                </th>
+                <th>
+                    Tổng cộng
+                </th>
+            </tr>
+            <tr class="description">
+                <td>
+                    <img src="../public/images/cart/1_full.png" width="100%">
+                </td>
+                <td>
+                    <p style="color: blue">Áo thun khoác cổ tròn</p>
+                    <p>Size: M</p>
+                </td>
+                <td>
+                    <p id="price">200000</p>
+                </td>
+                <td>
+                    <p>
+                        <span id="quantity">1</span>
+                        <img onclick="quantityChange()" src="../public/images/arrow/up-arrow-black.png">
+                    </p>
+                </td>
+                <td>
+                    <p id="money">200000</p>
+                </td>
+            </tr>
+            <tr class="description">
+                <td>
+                    <img src="../public/images/cart/1_full.png" width="100%">
+                </td>
+                <td>
+                    <p style="color: blue">Áo thun khoác cổ tròn</p>
+                    <p>Size: M</p>
+                </td>
+                <td>
+                    <p id="price">200000</p>
+                </td>
+                <td>
+                    <p>
+                        <span id="quantity">1</span>
+                        <img onclick="quantityChange()" src="../public/images/arrow/up-arrow-black.png">
+                    </p>
+                </td>
+                <td>
+                    <p id="money">200000</p>
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <div class="row">
+            <div class="col-5 promotion-code">
+                <p>Nhập mã khuyến mãi</p>
+                <hr>
+                <input type="text" placeholder="Nhập mã khuyến mãi">
+                <button>Sử dụng thẻ khuyến mãi</button>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6 sum-quantity">
+                <p>Tổng số lượng</p>
+                <hr>
+                <p>Tổng cộng:
+                    <span id="sum">400000</span>
+                </p>
+                <div>
+                    <button>Update cart</button>
+                </div>
+                <div>
+                    <button>Tiến hành thanh toán</button>
+                </div>
+            </div>
+        </div>
+        <div class="rating">
+            <div class="start">
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+                <span class="rate fa fa-star"></span>
+            </div>
+            <div>
+                <p>Đánh giá</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li>
+                <img src="../public/images/icon/icon-maker.png" alt="Maker">
+                <p>256 Nguyễn Văn Cừ,</p>
+                <p>Quận 5, Hồ Chí Minh </p>
+            </li>
+            <li>
+                <img src="../public/images/icon/icon-call.png" alt="Call">
+                <p>Tel: 0931090956</p>
+                <p>Tel: 0933147821</p>
+            </li>
+            <li>
+                <img src="../public/images/icon/icon-mail.png" alt="Mail">
+                <p>dlstore@gmail.com</p>
+            </li>
+            <li>
+                <img src="../public/images/icon/icon-copyright.png" alt="Copyright">
+                <p>&copy; DL in VietNam 2018</p>
+            </li>
+            <li class="left">
+                <a href="https://www.facebook.com/nguyenhuu.datduc">
+                    <img src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/0fdef751204647a3bbd7eaa2827ed4f9.png">
+                </a>
+                <a href="#">
+                    <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_25,h_25,al_c,usm_0.66_1.00_0.01/01c3aff52f2a4dffa526d7a9843d46ea.png">
+                </a>
+                <a href="https://www.youtube.com/watch?v=GArJ0EPu77w">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu-social/60/youtube-social-media-128.png">
+                </a>
+            </li>
+        </ul>
+        <div>
+            <div style="float: left; margin-left: 6%">
+                <img src="../public/images/logo/logo.png">
+            </div>
+            <div id="some">
+                <div id="mail">
+                    <img src="../public/images/icon/icon-mail1.png" alt="mail">
+                </div>
+                <p>Gửi tin nhắn cho dl.vn</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../javascript/navbar.js"></script>
+    <script src="../javascript/topic.js"></script>
+    <script src="../javascript/cart.js"></script>
+</body>
+
+</html>

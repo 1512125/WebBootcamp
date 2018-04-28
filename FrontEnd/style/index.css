@@ -16,6 +16,14 @@ header {
     min-height: 60px;
 }
 
+.overlayLinkSignUp {
+    cursor: pointer;
+}
+
+.overlayLinkSignIn {
+    cursor: pointer;
+}
+
 section {
     margin-top: 45px;
 }
@@ -143,8 +151,7 @@ h4.title a {
     margin: 0 10%;
 }
 
-a.product,
-a.product:hover {
+a.product, a.product:hover {
     padding-top: 120px;
     float: left;
     width: 50%;
