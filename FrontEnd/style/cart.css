@@ -3,7 +3,14 @@
     margin: 0;
 }
 
-.cart-detail tr th, td {
+nav p {
+    margin-left: 15px;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.cart-detail tr th,
+td {
     margin-right: 10px;
     text-align: center;
 }
@@ -15,6 +22,12 @@
 .promotion-code p {
     font-weight: bold;
     font-size: 1.6em;
+}
+
+.promotion-code input {
+    width: 45%;
+    border-radius: 10px;
+    line-height: 40px;
 }
 
 .promotion-code button {

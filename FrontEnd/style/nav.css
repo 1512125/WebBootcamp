@@ -1,3 +1,38 @@
+header {
+    color: tomato;
+    background-color: white;
+    border-bottom: solid 2px black;
+    padding: 10px 20px 10px 20px;
+    min-height: 60px;
+}
+
+.overlayLinkSignUp {
+    cursor: pointer;
+}
+
+.overlayLinkSignIn {
+    cursor: pointer;
+}
+
+section {
+    margin-top: 45px;
+}
+
+header ul {
+    list-style: none;
+    float: right;
+    align-items: flex-end;
+}
+
+header ul a {
+    padding-left: 20px;
+    float: left;
+    color: royalblue;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+}
+
 #logo {
     width: 100px;
     height: 100px;

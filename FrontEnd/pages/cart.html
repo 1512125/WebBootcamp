@@ -12,22 +12,35 @@
     <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../style/cart.css">
     <link rel="stylesheet" href="../style/contact.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <header>
+        <ul>
+            <a href="pages/cart.html">
+                <img class="icon" src="../public/images/icon/icon-shopping.png" alt="shopping">
+            </a>
+            <a href="#">
+                <img class="icon" src="../public/images/icon/icon-gplus.png" alt="gplus">
+            </a>
+            <a href="#">
+                <img class="icon" src="../public/images/icon/icon-face.png" alt="face">
+            </a>
+            <a class="overlayLinkSignIn">Sign in</a>
+            <a class="overlayLinkSignUp">Sign up</a>
+        </ul>
+    </header>
     <div style="margin-bottom: 10px;">
         <nav id="navbar">
             <a href="../index.html">
                 <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
             </a>
             <ul>
-                <a href="#">In áo thun</a>
+                <a href="printTshirt.html">In áo thun</a>
                 <a href="shop.html">Shop</a>
-                <a href="#">Design</a>
-                <a href="#">Information</a>
+                <a href="design.html">Design</a>
                 <img src="../public/images/icon/icon-search.png" alt="Search" class="icon">
             </ul>
         </nav>
@@ -94,7 +107,7 @@
                 <td>
                     <p>
                         <span id="quantity">1</span>
-                        <img onclick="quantityChange()" src="../public/images/arrow/up-arrow-black.png">
+                        <img src="../public/images/arrow/up-arrow-black.png">
                     </p>
                 </td>
                 <td>
@@ -115,7 +128,28 @@
                 <td>
                     <p>
                         <span id="quantity">1</span>
-                        <img onclick="quantityChange()" src="../public/images/arrow/up-arrow-black.png">
+                        <img src="../public/images/arrow/up-arrow-black.png">
+                    </p>
+                </td>
+                <td>
+                    <p id="money">200000</p>
+                </td>
+            </tr>
+            <tr class="description">
+                <td>
+                    <img src="../public/images/cart/1_full.png" width="100%">
+                </td>
+                <td>
+                    <p style="color: blue">Áo thun khoác cổ tròn</p>
+                    <p>Size: M</p>
+                </td>
+                <td>
+                    <p id="price">200000</p>
+                </td>
+                <td>
+                    <p>
+                        <span id="quantity">1</span>
+                        <img src="../public/images/arrow/up-arrow-black.png">
                     </p>
                 </td>
                 <td>
@@ -137,13 +171,10 @@
                 <p>Tổng số lượng</p>
                 <hr>
                 <p>Tổng cộng:
-                    <span id="sum">400000</span>
+                    <span id="sum"></span>
                 </p>
                 <div>
-                    <button>Update cart</button>
-                </div>
-                <div>
-                    <button>Tiến hành thanh toán</button>
+                    <button onclick="verified()">Tiến hành thanh toán</button>
                 </div>
             </div>
         </div>
@@ -208,12 +239,9 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/topic.js"></script>
     <script src="../javascript/cart.js"></script>
