@@ -1,53 +1,52 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
     background-color: white;
 }
 
-header{
+header {
     color: tomato;
     background-color: white;
     border-bottom: solid 2px black;
     padding: 0px 20px 10px 20px;
 }
 
-#logo{
+#logo {
     width: 150px;
     height: 150px;
 }
 
-header ul{
+header ul {
     list-style: none;
     float: right;
     align-items: flex-end;
     padding-top: 120px;
 }
 
-header ul a{
+header ul a {
     padding-left: 20px;
     float: left;
     color: #009688;
     font-size: 20px;
     font-weight: 700;
     font-style: italic;
-    
 }
 
-.icon{
+.icon {
     width: 30px;
     height: 30px;
 }
 
-.item{
+.item {
     font-size: 14px;
     font-style: normal;
 }
 
-nav{
+nav {
     background-color: white;
     padding: 10px 10px;
     height: 70px;
@@ -55,10 +54,10 @@ nav{
 
 nav ul {
     float: right;
-    
 }
 
-nav ul a, nav ul a:hover{
+nav ul a,
+nav ul a:hover {
     margin-left: 10px;
     list-style: none;
     border: #009688 solid 1px;
@@ -75,15 +74,15 @@ nav ul a, nav ul a:hover{
     font-style: italic;
 }
 
-nav ul img{
+nav ul img {
     padding: 5px 0 0 10px;
 }
 
-.cursor{
+.cursor {
     cursor: pointer;
 }
 
-#title{
+#title {
     clear: both;
     margin: 20px 5% 30px;
     color: #009688;
@@ -91,175 +90,175 @@ nav ul img{
     font-weight: 650;
 }
 
-#sumary{
+#sumary {
     margin: 0 10%;
     height: 600px;
 }
 
-#sumary .form-control{
+#sumary .form-control {
     margin-left: 5px;
 }
 
-#sumary .form-inline img{
+#sumary .form-inline img {
     margin-right: 10px;
 }
 
 #chartdiv {
-    width		: 70%;
-    height		: 500px;
-    font-size	: 11px;
+    width: 70%;
+    height: 500px;
+    font-size: 11px;
     float: left;
-}		
+}
 
-#content{
+#content {
     float: left;
     width: 25%;
     text-align: center;
     margin-top: 6%;
 }
 
-#content h5{
+#content h5 {
     font-weight: 600;
 }
 
-#inventory{
+#inventory {
     margin: 0 10%;
 }
 
-#inventory h2{
+#inventory h2 {
     font-weight: 600;
     padding-bottom: 20px;
 }
 
-#nav{
+#nav {
     margin: 0 10%;
     list-style: none;
     height: 80px;
 }
 
-#nav a{
+#nav a {
     border-left: black 1px solid;
     float: left;
     padding: 0 10px;
     font-size: 18px;
 }
 
-.products{
+.products {
     margin: 0 10%;
     height: 300px;
 }
 
-.products img{
+.products img {
     float: left;
     width: 16%;
     margin: 0 2%;
 }
 
-.describe{
+.describe {
     float: left;
     height: 100px;
     width: 80%;
 }
 
-a.title{
+a.title {
     font-size: 32px;
 }
 
-.describe p{
+.describe p {
     margin: 3px;
     font-size: 20px;
 }
 
-.inline{
+.inline {
     border-top: rgb(80, 80, 80) 1px solid;
     border-bottom: rgb(80, 80, 80) 1px solid;
     padding: 2px 0 39px 0;
     height: 35px;
 }
 
-.inline p{
+.inline p {
     border-right: black 1px solid;
     padding: 0px 10px;
     float: left;
 }
 
-.inline a{
+.inline a {
     float: right;
     font-size: 20px;
 }
 
-#input{
+#input {
     margin: 10px 0 0 90px;
 }
 
-#customer{
+#customer {
     margin: 0 10%;
 }
 
-.customer{
+.customer {
     width: 50%;
     float: left;
     margin: 40px 0;
 }
 
-.customer img{
+.customer img {
     width: 30%;
     float: left;
 }
 
-.customer .decribe{
+.customer .decribe {
     float: left;
     margin: 0px 5%;
     width: 60%;
 }
 
-.customer a{
+.customer a {
     border-bottom: darkgray 1px solid;
     display: block;
 }
 
-#form form{
+#form form {
     float: left;
 }
 
-#form #nav{
-    margin: 16px 0 0 33px;    
+#form #nav {
+    margin: 16px 0 0 33px;
     float: left;
 }
 
-#fashion{
+#fashion {
     clear: both;
     margin: 0 5%;
 }
 
-.fashion{
+.fashion {
     text-align: center;
     width: 16%;
     margin: 20px 2%;
     float: left;
 }
 
-.fashion img{
+.fashion img {
     width: 17%;
     max-width: 35px;
 }
 
-.fashion p{
+.fashion p {
     margin: 0;
 }
 
-.option{
+.option {
     float: left;
     text-align: center;
     align-items: center;
 }
 
-#icon1{
+#icon1 {
     width: 100%;
-    max-width: 200px;        
+    max-width: 200px;
 }
 
-.add{
+.add {
     float: right;
     margin-right: 9%;
     background-color: #009688;
@@ -267,12 +266,12 @@ a.title{
     color: white;
 }
 
-#paper{
+#paper {
     clear: both;
     margin-top: 130px;
 }
 
-footer{
+footer {
     clear: both;
     color: white;
     font-weight: 600;
@@ -281,14 +280,14 @@ footer{
     height: 230px;
 }
 
-footer ul{
+footer ul {
     padding-top: 10px;
     list-style: none;
     height: 170px;
 }
 
-footer li{
-    width: 20%;
+footer li {
+    width: 19%;
     height: 150px;
     float: left;
     border-right: white dashed 2px;
@@ -296,23 +295,22 @@ footer li{
     text-align: center;
 }
 
-footer img{
+footer img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
-    
 }
 
-footer p{
+footer p {
     padding: 0;
     margin: 0;
 }
 
-.left{
+.left {
     border-right: none;
 }
 
-#some{
+#some {
     background-color: rgb(0, 166, 146);
     border-radius: 5px;
     border: rgb(0, 166, 146) 1px solid;
@@ -320,30 +318,30 @@ footer p{
     margin-top: 10px;
 }
 
-#logo-end img{
+#logo-end img {
     float: left;
     margin-left: 5%;
 }
 
-#mail{
+#mail {
     float: left;
     background-color: rgb(6, 207, 183);
     border-radius: 2px;
 }
 
-#mail img{
+#mail img {
     margin: 3px 5px;
     width: 25px;
     height: 25px;
 }
 
-#some p{
+#some p {
     padding: 3px 8px;
     color: black;
     float: left;
     font-size: 14px;
 }
 
-.btn-danger{
+.btn-danger {
     background-color: tomato;
 }
