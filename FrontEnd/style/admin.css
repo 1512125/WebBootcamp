@@ -56,8 +56,7 @@ nav ul {
     float: right;
 }
 
-nav ul a,
-nav ul a:hover {
+nav ul a, nav ul a:hover {
     margin-left: 10px;
     list-style: none;
     border: #009688 solid 1px;

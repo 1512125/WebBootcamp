@@ -1,11 +1,8 @@
-$(document).ready(function() {
-    $('.start span').click(function(){
-        if($(this).hasClass('checked'))
-        {
+$(document).ready(function () {
+    $('.start span').click(function () {
+        if ($(this).hasClass('checked')) {
             $(this).removeClass('checked');
-        }
-        else
-        {
+        } else {
             $(this).addClass('checked');
         }
     })

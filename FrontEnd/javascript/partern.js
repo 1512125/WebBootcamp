@@ -1,8 +1,8 @@
 var edit = false;
 
-$(document).ready(function(){
-    $(".new-partern").click(function() {
-        if (edit){
+$(document).ready(function () {
+    $(".new-partern").click(function () {
+        if (edit) {
             $('#code')[0].value = '';
             $('#name')[0].value = '';
             $('#price')[0].value = 0;
@@ -14,12 +14,12 @@ $(document).ready(function(){
         $('.add-partern').show();
     });
 
-    $(".close").click(function() {
+    $(".close").click(function () {
         $(".add-partern").hide();
     });
 
-    $('.edit').click(function(e){
-        if (!edit){
+    $('.edit').click(function (e) {
+        if (!edit) {
             $('#add').hide();
             $('#change').show();
             edit = true;
@@ -35,31 +35,31 @@ $(document).ready(function(){
         $('.add-partern').show();
     });
 
-    $('.del').click(function(){
+    $('.del').click(function () {
         $(this).parent().hide();
     });
 })
 
-function search(){
+function search() {
     var list = $('.fashion');
     var name = document.getElementById('input').value.toLowerCase();
-    for (var i = 0; i < list.length; ++i){
+    for (var i = 0; i < list.length; ++i) {
         var temp = list[i].children[1].innerText.toLowerCase();
         if (temp.search(name) < 0) list[i].style.display = 'none';
         else list[i].style.display = '';
     }
 }
 
-function numberic(s){
+function numberic(s) {
     res = '';
-    for(var i = 0; i < s.length; ++i)
+    for (var i = 0; i < s.length; ++i)
         if (s[i] <= '9' && s[i] >= '0') res += s[i];
     return parseInt(res);
 }
 
 var ch = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function money(s){
+function money(s) {
     var res = '';
     var count = 0;
     do {
@@ -69,7 +69,7 @@ function money(s){
         s = (s - r) / 10;
         console.log(r);
         res = ch[r] + res;
-    } while(s > 0)
+    } while (s > 0)
     while (res.length < 3) res = '0' + res;
     return 'Giá: ' + res + ' vnđ';
 }

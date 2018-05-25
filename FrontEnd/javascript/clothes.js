@@ -1,8 +1,8 @@
 var edit = false;
 
-$(document).ready(function(){
+$(document).ready(function () {
     var x = '.fashion';
-    $('#nav a').click(function(){
+    $('#nav a').click(function () {
         var temp = $(this).data('quote');
         console.log(temp);
         $(x).hide();
@@ -10,37 +10,38 @@ $(document).ready(function(){
         else $(x).show();
     })
 
-    $(".new-cloth").click(function() {
+    $(".new-cloth").click(function () {
         $('.add-cloth').show();
     });
 
-    $(".close").click(function() {
+    $(".close").click(function () {
         $(".add-cloth").hide();
     });
 })
 
-function search(){
+function search() {
     var list = $('.fashion');
     var name = document.getElementById('input').value.toLowerCase();
-    for (var i = 0; i < list.length; ++i){
+    for (var i = 0; i < list.length; ++i) {
         var temp = list[i].children[1].innerText.toLowerCase();
         if (temp.search(name) < 0) list[i].style.display = 'none';
         else list[i].style.display = '';
     }
 }
 
-function del(e){
-    $('.fashion')[e-1].style.display = 'none';
+function del(e) {
+    $('.fashion')[e - 1].style.display = 'none';
 }
 
-function filter(a){
-    if (!edit){
+function filter(a) {
+    if (!edit) {
         $('#add').hide();
         $('#change').show();
         edit = true;
     }
-    var p = $('.fashion')[a-1];
-    console.log(p.className);8
+    var p = $('.fashion')[a - 1];
+    console.log(p.className);
+    8
     $('#code')[0].value = $(p).data('code');
     $('#name')[0].value = p.children[1].innerText;
     $('#price')[0].value = numberic(p.children[2].innerText);
@@ -48,16 +49,16 @@ function filter(a){
     $('.add-cloth').show();
 }
 
-function numberic(s){
+function numberic(s) {
     res = '';
-    for(var i = 0; i < s.length; ++i)
+    for (var i = 0; i < s.length; ++i)
         if (s[i] <= '9' && s[i] >= '0') res += s[i];
     return parseInt(res);
 }
 
 var ch = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function money(s){
+function money(s) {
     var res = '';
     var count = 0;
     do {
@@ -67,7 +68,7 @@ function money(s){
         s = (s - r) / 10;
         console.log(r);
         res = ch[r] + res;
-    } while(s > 0)
+    } while (s > 0)
     while (res.length < 3) res = '0' + res;
     return 'Giá: ' + res + ' vnđ';
 }

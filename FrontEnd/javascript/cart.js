@@ -6,7 +6,7 @@ function verified() {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     let sum = 0;
     let arr = $('.description');
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     $('#sum').text(String(sum));
 
-    $('.description td p img').click(function() {
+    $('.description td p img').click(function () {
         var count = Number($(this).parent().find('#quantity').text()) + 1;
         $(this).parent().find('#quantity').text(String(count));
 

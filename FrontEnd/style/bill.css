@@ -36,34 +36,34 @@ div.overlay>div.login-wrapper>div.login-content>h3 {
     padding: 0;
 }
 
-.image{
+.image {
     float: left;
     width: 40%;
 }
 
-.image img{
+.image img {
     width: 100%;
     background-image: url(../public/images/admin/none.jpg)
 }
 
-div#form{
+div#form {
     float: left;
     margin-left: 10%;
     width: 50%;
 }
 
-div#form>input.text{
+div#form>input.text {
     width: 75%;
     float: right;
 }
 
-div#form>input.radio{
+div#form>input.radio {
     clear: both;
     margin-left: 90px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
-div#form>p{
+div#form>p {
     padding-left: 100px;
 }

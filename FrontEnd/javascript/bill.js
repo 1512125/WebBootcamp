@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var x = '.products';
-    $('#nav a').click(function(){
+    $('#nav a').click(function () {
         var temp = $(this).data('quote');
         console.log(temp);
         $(x).hide();
@@ -9,8 +9,8 @@ $(document).ready(function(){
     })
 })
 
-function edit(e){
-    var p = $('.products')[e-1];
+function edit(e) {
+    var p = $('.products')[e - 1];
     $('#' + xl(p.className)).attr('checked', 'checked');
     p = p.children;
     $('.image img').attr('src', $(p[0]).attr('src'));
@@ -23,25 +23,25 @@ function edit(e){
     $('.edit-customer').show();
 }
 
-function xlstring(s){
+function xlstring(s) {
     var i = 1;
     while (s[i] != ':' && i < s.length) ++i;
-    return s.slice(i+2, s.length);
+    return s.slice(i + 2, s.length);
 }
 
-function xl(s){
+function xl(s) {
     var i = 1;
     while (s[i] != ' ' && i < s.length) ++i;
-    return s.slice(i+1, s.length);
+    return s.slice(i + 1, s.length);
 }
 
-function exit(){
+function exit() {
     $('.edit-customer').hide();
 }
 
-function numberic(s){
+function numberic(s) {
     res = '';
-    for(var i = 0; i < s.length; ++i)
+    for (var i = 0; i < s.length; ++i)
         if (s[i] <= '9' && s[i] >= '0') res += s[i];
     return parseInt(res);
 }

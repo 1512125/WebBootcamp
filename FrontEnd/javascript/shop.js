@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('.select a').on('click', function() {
+$(document).ready(function () {
+    $('.select a').on('click', function () {
         $('.select li.current').removeClass('current');
 
         $('.select a').css("color", "lightskyblue");
@@ -17,7 +17,7 @@ $(document).ready(function() {
             $('.product:hidden').fadeIn('slow').removeClass('hidden');
             $('.product').children('a').attr('data-lightbox', 'all');
         } else {
-            $('.product').each(function() {
+            $('.product').each(function () {
                 if (!$(this).hasClass(category)) {
                     $(this).hide().addClass('hidden');
                     $(this).children('a').attr('data-lightbox', $(this).children('a').attr('class'));
@@ -30,7 +30,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $('.product a').on('mouseenter', function() {
+    $('.product a').on('mouseenter', function () {
         var title = $(this).data('title');
         if (title == null) {
             title = '';
@@ -42,7 +42,7 @@ $(document).ready(function() {
         overlay.fadeIn(600);
     });
 
-    $('.product a').on('mouseleave', function() {
+    $('.product a').on('mouseleave', function () {
         var overlay = $(this).children('.overlay');
         overlay.fadeOut(800);
         overlay.remove();

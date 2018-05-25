@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DL shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrapl.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/admin.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/customer.css" />
     <script src="../vendor/js/popper.min.js"></script>
@@ -19,7 +19,9 @@
     <header>
         <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
         <ul>
-            <a href="#"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
+            <a href="#">
+                <img class="icon" src="../public/images/admin/icon-admin.png" alt="admin">
+            </a>
             <a class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #009688">
                     Admintrator
@@ -150,17 +152,21 @@
                     </div>
                     <div id="form">
                         <label for="code">Mã:</label>
-                        <input class="text" type="text" name="code" id="code"><br>
+                        <input class="text" type="text" name="code" id="code">
+                        <br>
                         <label for="name">Tên:</label>
-                        <input class="text" type="text" name="name" id="name"><br>
+                        <input class="text" type="text" name="name" id="name">
+                        <br>
                         <label for="addr">Địa chỉ:</label>
                         <input type="text" name="addr" id="addr">
                         <label for="email">Email:</label>
                         <input type="email" name="email" id="email">
                         <label for="phone">Phone:</label>
                         <input type="tel" name="phone" id="phone">
-                        <label for="decribe">Ghi chú: </label><br>
-                        <textarea type="text" name="decribe" id="decribe"></textarea><br>
+                        <label for="decribe">Ghi chú: </label>
+                        <br>
+                        <textarea type="text" name="decribe" id="decribe"></textarea>
+                        <br>
                         <button id="change" type="submit" class="btn btn-info">Thay đổi</button>
                         <button id="del" type="submit" class="btn btn-danger">Xóa</button>
                     </div>

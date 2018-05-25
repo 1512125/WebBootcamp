@@ -11,12 +11,11 @@ $(document).ready(function () {
     });
 });
 
-function inputChange(){
+function inputChange() {
     var quantity = $('#quantity').val();
     $('#quantity').attr('value', quantity)
 }
 
-function moveToCart()
-{
+function moveToCart() {
     window.location.assign('cart.html')
 }

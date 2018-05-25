@@ -1,7 +1,7 @@
-function search(){
+function search() {
     var list = $('.customer');
     var name = document.getElementById('input').value.toLowerCase();
-    for (var i = 0; i < list.length; ++i){
+    for (var i = 0; i < list.length; ++i) {
         var temp = list[i].children[1].children[1].innerText.toLowerCase();
         if (temp.search(name) < 0) list[i].style.display = 'none';
         else list[i].style.display = '';
@@ -9,8 +9,8 @@ function search(){
     console.log('a');
 }
 
-function edit(e){
-    var p = $('.customer')[e-1].children;
+function edit(e) {
+    var p = $('.customer')[e - 1].children;
     $('.image img').attr('src', $(p[0]).attr('src'));
     p = p[1].children;
     $('#code')[0].value = xlstring(p[0].innerText);
@@ -21,12 +21,12 @@ function edit(e){
     $('.edit-customer').show();
 }
 
-function xlstring(s){
+function xlstring(s) {
     var i = 1;
     while (s[i] != ':') ++i;
-    return s.slice(i+2, s.length);
+    return s.slice(i + 2, s.length);
 }
 
-function exit(){
+function exit() {
     $('.edit-customer').hide();
 }

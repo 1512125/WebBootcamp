@@ -22,8 +22,7 @@ nav p {
     border: 1px solid red;
 }
 
-.main-product
-{
+.main-product {
     margin-bottom: 40px;
 }
 
@@ -58,7 +57,10 @@ nav p {
     padding: 0 24px;
 }
 
-.next-slick, .next-slick *, .next-slick :after, .next-slick :before {
+.next-slick,
+.next-slick *,
+.next-slick :after,
+.next-slick :before {
     box-sizing: border-box;
 }
 
@@ -140,17 +142,18 @@ nav p {
     font-size: 1.6em;
     color: black;
 }
-.size
-{
+
+.size {
     margin-bottom: 30px;
 }
-.size label{
+
+.size label {
     text-align: left;
     margin-right: 110px;
     font-size: 1.4em;
 }
 
-.size input{
+.size input {
     text-align: center;
     line-height: 30px;
     width: 50%;
@@ -158,12 +161,11 @@ nav p {
     border-radius: 10px;
 }
 
-.quantity
-{
+.quantity {
     margin-bottom: 30px;
 }
 
-.quantity input{
+.quantity input {
     text-align: center;
     font-weight: bold;
     font-size: 1.4em;
@@ -171,7 +173,7 @@ nav p {
     margin-right: 160px;
 }
 
-.quantity button{
+.quantity button {
     padding: 10px 15px 10px 15px;
     font-weight: bold;
     color: white;
@@ -180,40 +182,35 @@ nav p {
     cursor: pointer;
 }
 
-.code
-{
+.code {
     margin-bottom: 10px;
 }
 
-.menu
-{
+.menu {
     margin-bottom: 10px;
 }
 
-.description 
-{
+.description {
     margin-bottom: 20px;
 }
-.description .description-content
-{
+
+.description .description-content {
     border: 1px solid lightgray;
     padding-left: 50px;
 }
 
-.description .description-content ul{
+.description .description-content ul {
     padding-left: 50px;
 }
 
-
-.another{
+.another {
     margin-bottom: 50px;
 }
 
-.another .another-product img{
+.another .another-product img {
     width: 100%;
 }
 
-.another .another-description
-{
+.another .another-description {
     font-weight: bold;
 }

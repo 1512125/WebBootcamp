@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DL shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../vendor/css/bootstrapl.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/admin.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../style/clothes.css" />
     <script src="../vendor/js/popper.min.js"></script>
@@ -19,7 +19,9 @@
     <header>
         <img src="../public/images/logo/logo.png" alt="Logo" id="logo"></img>
         <ul>
-            <a href="#"><img class="icon" src="../public/images/admin/icon-admin.png" alt="admin"></a>
+            <a href="#">
+                <img class="icon" src="../public/images/admin/icon-admin.png" alt="admin">
+            </a>
             <a class="dropdown">
                 <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #009688">
                     Admintrator
@@ -230,18 +232,25 @@
                     </div>
                     <div id="form">
                         <label for="code">Mã áo:</label>
-                        <input class="text" type="text" name="code" id="code"><br>
+                        <input class="text" type="text" name="code" id="code">
+                        <br>
                         <label for="name">Tên áo:</label>
-                        <input class="text" type="text" name="name" id="name"><br>
+                        <input class="text" type="text" name="name" id="name">
+                        <br>
                         <label for="type">Loại áo:</label>
-                        <p><input type="checkbox" name="type" id="t1">Áo nam &nbsp;&nbsp;
+                        <p>
+                            <input type="checkbox" name="type" id="t1">Áo nam &nbsp;&nbsp;
                             <input type="checkbox" name="type" id="t2">Áo nữ</p>
-                        <p><input type="checkbox" name="type" id="t3">Áo nhóm&nbsp;
+                        <p>
+                            <input type="checkbox" name="type" id="t3">Áo nhóm&nbsp;
                             <input type="checkbox" name="type" id="t4">Áo cặp</p>
                         <label for="price">Giá:</label>
-                        <input class="text" type="number" name="price" id="price" step="1000"><br>
-                        <label for="decribe">Mô tả: </label><br>
-                        <textarea type="text" name="decribe" id="decribe"></textarea><br>
+                        <input class="text" type="number" name="price" id="price" step="1000">
+                        <br>
+                        <label for="decribe">Mô tả: </label>
+                        <br>
+                        <textarea type="text" name="decribe" id="decribe"></textarea>
+                        <br>
                         <button id="add" type="submit" class="btn btn-success">Thêm áo</button>
                         <button id="change" type="submit" class="btn btn-info">Thay đổi</button>
                     </div>
