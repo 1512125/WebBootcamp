@@ -1,33 +1,40 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
+    <title>Client</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DL shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style/nav.css">
     <link rel="stylesheet" href="style/footer.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="style/index.css" />
-    <link rel="stylesheet" type="text/css" href="style/pop-up.css">
-
+    <link rel="stylesheet" href="style/client.css">
+    <link rel="stylesheet" href="style/index.css">
 </head>
 
 <body>
+
     <header>
         <ul>
             <a href="pages/cart.html">
                 <img class="icon" src="public/images/icon/icon-shopping.png" alt="shopping">
             </a>
-            <a href="#">
-                <img class="icon" src="public/images/icon/icon-gplus.png" alt="gplus">
-            </a>
-            <a href="#">
-                <img class="icon" src="public/images/icon/icon-face.png" alt="face">
-            </a>
-            <a class="overlayLinkSignIn">Sign in</a>
-            <a class="overlayLinkSignUp">Sign up</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN4yYo0Yo8Cgtdf3O3WbNerQe4WDc4P3Z8TzQQrR8iHy6gq5E" alt="Hình"> Trần Hoàng
+                </button>
+                <div class="dropdown-content">
+                    <a href="pages/client/modifyClient.html">Sửa thông tin</a>
+                    <a href="pages/cart.html">Đơn hàng đã đặt</a>
+                    <a href="pages/design.html">Thiết kế áo</a>
+                    <a href="index.html">Đăng xuất</a>
+                </div>
+            </div>
         </ul>
     </header>
 
@@ -46,7 +53,6 @@
             <img src="public/images/icon/icon-search.png" alt="Search" class="icon">
         </ul>
     </nav>
-
     <section id="intro">
         <div class="intro active" id="s1">
             <img src="public/images/icon/icon-heart.png" alt="heart">
@@ -283,7 +289,7 @@
                         <input type="password" name="password" id="password" placeholder="Mật khẩu phải có ít nhất 1 chữ ghi hoa, 1 chữ ghi thường và 1 chữ số"
                             pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
                     </label>
-                    <button type="submit" onclick = "changeToClient()">Đăng nhập</button>
+                    <button type="submit" onclick="changeToClient()">Đăng nhập</button>
                 </form>
             </div>
         </div>
@@ -307,7 +313,7 @@
                     <label for="receivedInformation">
                         <input type="radio" name="receivedInformation" id="receivedInformation" /> Đăng ký nhận thông tin
                     </label>
-                    <button type="submit" onclick = "changeToClient()">Đăng ký</button>
+                    <button type="submit" onclick="changeToClient()">Đăng ký</button>
                 </form>
             </div>
         </div>

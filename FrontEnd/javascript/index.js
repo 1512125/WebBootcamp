@@ -70,3 +70,7 @@ $(function () {
         }, 1600);
     });
 });
+
+function changeToClient() {
+    window.location.assign('client.html')
+}
