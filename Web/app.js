@@ -41,7 +41,9 @@ app.get('/sync', function(req, res){
 		res.send('database sync completed!');
 	});
 });
-
+app.get('/', (req, res)=>{
+	res.render('index')
+})
 // Set Server Port & Start Server
 app.set('port', (process.env.PORT || 5000));
 
