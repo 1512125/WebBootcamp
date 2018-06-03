@@ -15,7 +15,6 @@ controller.getById = function(id, callback){
     models.Product
     .findOne({ 
         where: {id: id},
-        include: [models.Comment]
     })
     .then(function(product){
         callback(product);

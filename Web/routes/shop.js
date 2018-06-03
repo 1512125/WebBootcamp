@@ -10,6 +10,13 @@ router.get('/', (req, res)=>{
             res.render('shop', {product: product, types: types})
         })
     })
+});
+
+router.get('/:id', (req, res)=>{
+    let id = req.body.id;
+    productsController.getById(id, (product) => {
+        res.render('productdetail', {prodcut: product});
+    });
 })
 
 module.exports = router;

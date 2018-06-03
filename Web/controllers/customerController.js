@@ -11,4 +11,12 @@ controller.getAll = function(callback){
     })
 };
 
+controller.getById = function(id, callback){
+    models.Customer
+    .findById()
+    .then(function(customer){
+        callback(customer);
+    })
+};
+
 module.exports = controller;

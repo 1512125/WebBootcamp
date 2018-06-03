@@ -8,13 +8,12 @@ var customersController = require('../controllers/customerController');
 //     });
 // });
 
-// router.get('/:id', function(req, res){
-//     let id = req.params.id;
-// 	articlesController.getById(id, function (article) {
-//         console.log(article.dataValues.Comments);
-//         res.render('details', {article: article});
-//     });
-// });
+router.get('/:id', function(req, res){
+    let id = req.params.id;
+	customerController.getById(id, function (customer) {
+        res.render('/', {customer: customer});
+    });
+});
 
 // router.post('/', function(req,res){
 //     var string = req.body.name.split(' ');
