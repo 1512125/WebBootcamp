@@ -12,7 +12,9 @@ router.get('/bill', (req, res)=>{
 })
 
 router.get('/customer', (req, res)=>{
-	res.render('admin/customer', {layout: "layoutAdmin"})
+	customersController.getAll((customers)=>{
+		res.render('admin/customer', {layout: "layoutAdmin", customers: customers})
+	})
 })
 
 router.get('/clothes', (req, res)=>{
