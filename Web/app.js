@@ -20,11 +20,11 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// var customer = require('./routes/customer');
-// app.use('/customer', customers);
+//var customer = require('./routes/admin');
+//app.use('/customer', customer);
 // var product = require('./routes/product');
 // app.use('/product', product);
 // var productdetail = require('./routes/productdetail');
@@ -33,17 +33,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use('/transaction', transactions);
 // var type = require('./routes/type');
 // app.use('/type', types);
-
+var admin = require('./routes/admin')
+app.use('/admin', admin)
+var shop = require('./routes/shop')
+app.use('/shop', shop)
 
 // Define your routes here
+
 app.get('/sync', function(req, res){
 	models.sequelize.sync().then(function(){
 		res.send('database sync completed!');
 	});
 });
+
 app.get('/', (req, res)=>{
 	res.render('index')
 })
+
+app.get('/design', (req, res)=>{
+	res.render('design')
+})
+
+
 // Set Server Port & Start Server
 app.set('port', (process.env.PORT || 5000));
 

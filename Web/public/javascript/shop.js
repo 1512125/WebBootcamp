@@ -8,9 +8,8 @@ $(document).ready(function () {
         $(this).css("color", "red");
 
         $('h1#heading').text($(this).text());
-
-
-        var category = $(this).text().toLowerCase().replace(' ', '-');
+        
+        var category = $(this).data('type').toLowerCase().replace(' ', '-');
 
 
         if (category == 'all') {
