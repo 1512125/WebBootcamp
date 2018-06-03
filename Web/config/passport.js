@@ -1,5 +1,6 @@
 var passport = require('passport');
-var Customer = require('../models/customer');
+var Customer = require('../controllers/customerController');
+var models = require('../models');
 var LocalStrategy = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 
@@ -31,7 +32,7 @@ passport.use('local-signup', new LocalStrategy({
     var generateHash = function (password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
     };
-    Customer.findOne({
+    models.Customer.findOne({
             where: {
                 userLogin: userLogin
             }
@@ -72,7 +73,8 @@ passport.use('local-signin', new LocalStrategy({
         var isValidPassword = function (userpass, password) {
             return bCrypt.compareSync(password, userpass);
         };
-        Customer.findOne({
+        console.log(Customer);
+        models.Customer.findOne({
             where: {
                 userLogin: userLogin
             }

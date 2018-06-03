@@ -11,12 +11,19 @@ controller.getAll = function(callback){
     })
 };
 
-controller.getById = function(id, callback){
+controller.getByUserName = function(name, callback){
     models.Customer
-    .findById()
+    .findOne({
+        where: {
+            userLogin: name
+        }
+    }, {
+        raw: true
+    })
     .then(function(customer){
         callback(customer);
     })
 };
+
 
 module.exports = controller;
