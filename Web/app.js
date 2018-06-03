@@ -4,6 +4,7 @@ var app = express();
 
 var passport = require('passport');
 var session = require('express-session');
+var env = require('dotenv').load();
 
 // Setting for app here
 app.use(express.static(__dirname + '/public'));
@@ -28,6 +29,18 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+// For Passport
+
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session()); // persistent login sessions
+
+var authRoute = require('./routes/auth.js')(app, passport);
+
+require('./config/passport/passport.js')(passport, models.customer);
+
 //var customer = require('./routes/admin');
 //app.use('/customer', customer);
 // var product = require('./routes/product');
@@ -45,18 +58,18 @@ app.use('/shop', shop)
 
 // Define your routes here
 
-app.get('/sync', function(req, res){
-	models.sequelize.sync().then(function(){
-		res.send('database sync completed!');
-	});
+app.get('/sync', function(req, res) {
+    models.sequelize.sync().then(function() {
+        res.send('database sync completed!');
+    });
 });
 
-app.get('/', (req, res)=>{
-	res.render('index')
+app.get('/', (req, res) => {
+    res.render('index')
 })
 
-app.get('/design', (req, res)=>{
-	res.render('design')
+app.get('/design', (req, res) => {
+    res.render('design')
 })
 
 
