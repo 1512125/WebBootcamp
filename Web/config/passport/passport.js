@@ -25,10 +25,9 @@ module.exports = function(passport, user) {
                 } else {
                     var userPassword = generateHash(password);
                     var data = {
-                        email: email,
                         password: userPassword,
-                        firstname: req.body.name,
-                        email: req.body.email,
+                        name: req.body.name,
+                        email: email,
                         receiveInformation: req.body.receivedInformation
                     };
                     User.create(data).then(function(newUser, created) {
@@ -86,11 +85,11 @@ module.exports = function(passport, user) {
         done(null, user.id);
     });
     passport.deserializeUser(function(id, done) {
-        User.findById(id).then(function(user) {
-            if (user) {
-                done(null, user.get());
+        Customer.findById(id).then(function(customer) {
+            if (customer) {
+                done(null, customer.get());
             } else {
-                done(user.errors, null);
+                done(customer.errors, null);
             }
         });
     });
