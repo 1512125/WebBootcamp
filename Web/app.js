@@ -50,13 +50,13 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/',
+    successRedirect: '/client',
     failureRedirect: '/',
     failureFlash: true
 }));
 
 app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/',
+    successRedirect: '/client',
     failureRedirect: '/'
 }));
 
@@ -75,6 +75,8 @@ var admin = require('./routes/admin')
 app.use('/admin', admin)
 var shop = require('./routes/shop')
 app.use('/shop', shop)
+var client = require('./routes/client')
+app.use('/client', client)
 
 // Define your routes here
 
