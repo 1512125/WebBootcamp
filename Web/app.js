@@ -16,6 +16,7 @@ router.use(csrfProtection);
 app.use(express.static(__dirname + '/public'));
 var expressHbs = require('express-handlebars');
 var paginateHelper = require('express-handlebars-paginate');
+
 var hbs = expressHbs.create({
     extname: 'hbs',
     defaultLayout: 'layout',
@@ -37,6 +38,8 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 // app.use(validator());
 // For Passport
+const expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
 
 app.use(session({
     secret: 'keyboard cat',

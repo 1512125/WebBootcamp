@@ -22,13 +22,13 @@ passport.use('local-signup', new LocalStrategy({
     // req.checkBody('userLogin', 'Invalid user login').notEmpty.isUserLogin();
     // req.checkBody('password', 'Invalid password').notEmpty.isLength({min: 4});
     // var errors = req.validationErrors();
-    // if(errors){
-    //     var messages = [];
-    //     errors.forEach(function(error){
-    //         messages.push(error.msg);
-    //     });
-    //     return done(null, false, req.flash('error', messages));
-    // }
+    if(errors){
+        var messages = [];
+        errors.forEach(function(error){
+            messages.push(error.msg);
+        });
+        return done(null, false, req.flash('error', messages));
+    }
     var generateHash = function (password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
     };
@@ -65,7 +65,7 @@ passport.use('local-signup', new LocalStrategy({
 
 passport.use('local-signin', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        userLogin: 'userLogin',
+        userLogin: 'username',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
@@ -82,17 +82,21 @@ passport.use('local-signin', new LocalStrategy({
             raw: true
         })
         .then(customer => {
+            
             if (!customer) {
+                console.log('fail')
                 return done(null, false, {
                     message: 'User login does not exist'
                 });
             }
             if (!isValidPassword(user.password, password)) {
+                console.log('fail')
                 return done(null, false, {
                     message: 'Incorrect password.'
                 });
 
             }
+            console.log('success')
             var userinfo = customer.get();
             return done(null, userinfo);
         }).catch(function (err) {
