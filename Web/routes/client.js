@@ -16,4 +16,8 @@ router.get('/design', (req, res)=>{
 	res.render('client/design', {layout: "layoutClient"});
 });
 
+router.get('/cart', (req, res)=>{
+	res.render('client/cart', {layout: "layoutClient"});
+});
+
 module.exports = router;

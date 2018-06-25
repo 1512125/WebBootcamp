@@ -1,10 +1,8 @@
-function verified() {
-    var verified = confirm('Xác nhận thanh toán');
-    if (verified) {
-        alert('Cảm ơn quý khách');
-        window.location.assign('shop.html')
-    }
-}
+$('#payPaypal').on("click", function () {
+    let sum = $('#sum').text();
+    
+    window.location.href = '/cart/paypal/' + sum;
+});
 
 $(document).ready(function () {
     let sum = 0;

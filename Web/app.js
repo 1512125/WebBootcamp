@@ -39,7 +39,9 @@ app.use(cookieParser());
 // app.use(validator());
 // For Passport
 const expressSession = require('express-session');
-app.use(expressSession({secret: 'mySecretKey'}));
+app.use(expressSession({
+    secret: 'mySecretKey'
+}));
 
 app.use(session({
     secret: 'keyboard cat',
@@ -71,12 +73,12 @@ require('./config/passport.js');
 // app.use('/transaction', transactions);
 // var type = require('./routes/type');
 // app.use('/type', types);
-var admin = require('./routes/admin')
-app.use('/admin', admin)
-var shop = require('./routes/shop')
-app.use('/shop', shop)
-var client = require('./routes/client')
-app.use('/client', client)
+var admin = require('./routes/admin');
+app.use('/admin', admin);
+var shop = require('./routes/shop');
+app.use('/shop', shop);
+var client = require('./routes/client');
+app.use('/client', client);
 
 // Define your routes here
 
@@ -94,10 +96,89 @@ app.get('/design', (req, res) => {
     res.render('design')
 })
 
+app.get('/cart', (req, res) => {
+    res.render('cart')
+})
 
+app.get('/cart/COD', (req, res) => {
+    res.render('COD')
+})
+
+var paypal = require('paypal-rest-sdk');
+paypal.configure({
+    'mode': 'sandbox', //sandbox or live 
+    'client_id': 'ARlT-GyoZyDC5IQnTAF55KdMuSLYNcQwi1sX_x0YZCQzw6gwGA45spkNn0n1mcyll392D2qvb0hjzg4A', // please provide your client id here 
+    'client_secret': 'EDkLe3-VBYlK7M9Ps6UgjWpFHWuiVnikKGXeJsSfq16qm6rXtXyUOguR6GLJ2Fs52oe4mlF9V-B4BYBn' // provide your client secret here 
+});
+
+app.get('/cart/paypal/:money', (req, res) => {
+    let money = (req.params.money) / 22000;
+    var payment = {
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"
+        },
+        "redirect_urls": {
+            "return_url": "/cart/success",
+            "cancel_url": "/cart/err"
+        },
+        "transactions": [{
+            "amount": {
+                "total": money,
+                "currency": "USD"
+            },
+            "description": " money for products "
+        }]
+    }
+
+
+    // call the create Pay method 
+    createPay(payment)
+        .then((transaction) => {
+            var id = transaction.id;
+            var links = transaction.links;
+            var counter = links.length;
+            while (counter--) {
+                if (links[counter].method == 'REDIRECT') {
+                    // redirect to paypal where user approves the transaction 
+                    return res.redirect(links[counter].href)
+                }
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            res.redirect('/cart/err');
+        });
+})
+
+app.get('/cart/success' , (req ,res ) => {
+    res.render('cart/success'); 
+})
+
+app.get('/cart/err' , (req ,res ) => { 
+    res.render('cart/err'); 
+})
+
+
+app.get('/cart/VNPay', (req, res) => {
+    res.render('VNPay')
+})
 // Set Server Port & Start Server
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function () {
     console.log('Server is listening at port ' + app.get('port'));
 });
+
+var createPay = ( payment ) => {
+    return new Promise( ( resolve , reject ) => {
+        paypal.payment.create( payment , function( err , payment ) {
+         if ( err ) {
+             reject(err); 
+         }
+        else {
+            resolve(payment); 
+        }
+        }); 
+    });
+}		
