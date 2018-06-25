@@ -107,14 +107,14 @@ app.get('/cart/COD', (req, res) => {
 var paypal = require('paypal-rest-sdk');
 paypal.configure({
     'mode': 'sandbox', //sandbox or live 
-    'client_id': 'ARlT-GyoZyDC5IQnTAF55KdMuSLYNcQwi1sX_x0YZCQzw6gwGA45spkNn0n1mcyll392D2qvb0hjzg4A', // please provide your client id here 
-    'client_secret': 'EDkLe3-VBYlK7M9Ps6UgjWpFHWuiVnikKGXeJsSfq16qm6rXtXyUOguR6GLJ2Fs52oe4mlF9V-B4BYBn' // provide your client secret here 
+    'client_id': 'AWucuJK59bEWLC4ARSAhNM7zkmsBV3ER0o3-nCNtN4mEy7tNe5AcSEBcZZpkgvh5K8PznxqePYUu8BM5', // please provide your client id here 
+    'client_secret': 'EO970KoA58cY_PgaaCXkoMPBtBm8HEo_rmdeMR2JlMUyne3Dsk0sQNC5XHGbOijg9MQf4h1F0Xp4fzC1' // provide your client secret here 
 });
 
 app.get('/cart/paypal/:money', (req, res) => {
-    let money = (req.params.money) / 22000;
+    let money = Number((req.params.money) / 22000);
     var payment = {
-        "intent": "sale",
+        "intent": "authorize",
         "payer": {
             "payment_method": "paypal"
         },
@@ -151,18 +151,69 @@ app.get('/cart/paypal/:money', (req, res) => {
         });
 })
 
-app.get('/cart/success' , (req ,res ) => {
-    res.render('cart/success'); 
+app.get('/cart/success', (req, res) => {
+    res.render('cart/success');
 })
 
-app.get('/cart/err' , (req ,res ) => { 
-    res.render('cart/err'); 
+app.get('/cart/err', (req, res) => {
+    res.render('cart/err');
+})
+
+app.get('/cart/COD', (req, res) => {
+    res.render('cart/COD');
+})
+
+const {OnePayInternational} = require('vn-payments');
+var onepayIntl = new OnePayInternational({
+    paymentGateway: 'https://mtf.onepay.vn/vpcpay/vpcpay.op',
+    merchant: 'TESTONEPAY',
+    accessCode: '6BEB2546',
+    secureSecret: '6D0870CDE5F24F34F3915FB0045120DB',
+});
+app.get('/cart/VNPay/:money', (req, res) => {
+    let money = Number(req.params.money);
+
+    // construct checkout payload from form data and app's defaults
+    var checkoutData = {
+        amount: parseInt(money, 10),
+        currency: 'VND',
+    };
+
+    // buildCheckoutUrl is async operation and will return a Promise
+    onepayIntl
+        .buildCheckoutUrl(checkoutData)
+        .then(checkoutUrl => {
+            res.writeHead(301, {
+                Location: checkoutUrl.href
+            });
+            res.end();
+        })
+        .catch(err => {
+            res.send(err);
+        });
+})
+
+app.get('/cart/VNPay/callback', (req, res) => {
+    const query = req.query;
+
+    onepayIntl.verifyReturnUrl(query).then(results => {
+        if (results.isSucceed) {
+            res.render('/cart/success', {
+                title: 'Nau Store - Thank You',
+                orderId: results.orderId,
+                price: results.price,
+                message: results.message,
+            });
+        } else {
+            res.render('/cart/err', {
+                title: 'Nau Store - Payment Errors',
+                message: results.message,
+            });
+        }
+    });
 })
 
 
-app.get('/cart/VNPay', (req, res) => {
-    res.render('VNPay')
-})
 // Set Server Port & Start Server
 app.set('port', (process.env.PORT || 5000));
 
@@ -170,15 +221,14 @@ app.listen(app.get('port'), function () {
     console.log('Server is listening at port ' + app.get('port'));
 });
 
-var createPay = ( payment ) => {
-    return new Promise( ( resolve , reject ) => {
-        paypal.payment.create( payment , function( err , payment ) {
-         if ( err ) {
-             reject(err); 
-         }
-        else {
-            resolve(payment); 
-        }
-        }); 
+var createPay = (payment) => {
+    return new Promise((resolve, reject) => {
+        paypal.payment.create(payment, function (err, payment) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(payment);
+            }
+        });
     });
-}		
+}

@@ -33,6 +33,7 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.10",
     "serve-favicon": "^2.5.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "vn-payments": "^1.0.3"
   }
 }
