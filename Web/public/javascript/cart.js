@@ -1,10 +1,17 @@
-function verified() {
-    var verified = confirm('Xác nhận thanh toán');
-    if (verified) {
-        alert('Cảm ơn quý khách');
-        window.location.assign('shop.html')
-    }
-}
+$('#payPaypal').on("click", function () {
+    let sum = $('#sum').text();
+    window.location.href = '/cart/paypal/' + sum;
+});
+
+$('#payCOD').on("click", function () {
+    window.location.href = '/cart/COD/';
+});
+
+$('#payVNPay').on("click", function () {
+    let sum = $('#sum').text();
+    window.location.href = '/cart/VNPay/' + sum;
+});
+
 
 $(document).ready(function () {
     let sum = 0;

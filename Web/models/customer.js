@@ -1,4 +1,6 @@
 'use strict';
+var bcrypt = require("bcrypt-nodejs");
+
 module.exports = (sequelize, DataTypes) => {
   var Customer = sequelize.define('Customer', {
     userLogin: DataTypes.STRING,
@@ -14,7 +16,14 @@ module.exports = (sequelize, DataTypes) => {
 
   Customer.associate = function (models) {
     Customer.hasMany(models.Transaction);
-  }
-  
+  };
+
+  Customer.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+
+  Customer.hook("beforeCreate", function(user) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
   return Customer;
 };

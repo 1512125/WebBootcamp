@@ -19,9 +19,9 @@ passport.use('local-signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function (req, userLogin, password, done) {
-    // req.checkBody('userLogin', 'Invalid user login').notEmpty.isUserLogin();
-    // req.checkBody('password', 'Invalid password').notEmpty.isLength({min: 4});
-    // var errors = req.validationErrors();
+    req.checkBody('userLogin', 'Invalid user login').notEmpty();
+    req.checkBody('password', 'Invalid password').notEmpty();
+    var errors = req.validationErrors();
     if(errors){
         var messages = [];
         errors.forEach(function(error){
@@ -47,12 +47,13 @@ passport.use('local-signup', new LocalStrategy({
             }
             var userPassword = generateHash(password);
             var data = {
-                userLogin: userLogin,
-                password: userPassword,
-                name: req.body.name,
-                email: req.body.email
+                'userLogin': userLogin,
+                "password": userPassword,
+                "name": req.body.name,
+                "email": req.body.email
             };
-            Customer.create(data).then(function (newUser, created) {
+    
+            models.Customer.create(data).then(function (newUser, created) {
                 if (!newUser) {
                     return done(null, false);
                 }
@@ -89,7 +90,7 @@ passport.use('local-signin', new LocalStrategy({
                     message: 'User login does not exist'
                 });
             }
-            if (!isValidPassword(user.password, password)) {
+            if (!isValidPassword(customer.password, password)) {
                 console.log('fail')
                 return done(null, false, {
                     message: 'Incorrect password.'

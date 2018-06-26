@@ -29,10 +29,12 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "paypal-rest-sdk": "^1.8.1",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.10",
     "serve-favicon": "^2.5.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "vn-payments": "^1.0.3"
   }
 }
