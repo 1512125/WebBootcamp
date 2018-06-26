@@ -11,7 +11,7 @@ var customersController = require('../controllers/customerController');
 router.get('/:id', function(req, res){
     let id = req.params.id;
 	customerController.getById(id, function (customer) {
-        res.render('/', {customer: customer});
+        res.render('/client', {customer: customer});
     });
 });
 

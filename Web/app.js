@@ -8,11 +8,14 @@ var session = require('express-session');
 var env = require('dotenv').load();
 var csrf = require('csurf');
 var cookieParser = require('cookie-parser');
-var validator = require('validator');
+var expressValidator = require('express-validator');
+
 var csrfProtection = csrf();
 
 router.use(csrfProtection);
 // Setting for app here
+app.use(expressValidator()); 
+
 app.use(express.static(__dirname + '/public'));
 var expressHbs = require('express-handlebars');
 var paginateHelper = require('express-handlebars-paginate');
@@ -29,6 +32,9 @@ var hbs = expressHbs.create({
 });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
+
+var api = express.Router();
+api.use(expressValidator());
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
