@@ -5,10 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     imagepathLarge: DataTypes.STRING,
     pricing: DataTypes.INTEGER,
     description: DataTypes.TEXT
-  }, {});
+  }, {})
 
   Product.associate = function(models) {
-    Product.belongsTo(models.Type);
-  };
+    Product.belongsTo(models.Type)
+    Product.hasMany(models.Transaction)
+  }
   return Product;
-};
+}

@@ -5,11 +5,12 @@ module.exports = {
     let date = new Date();
 
     return queryInterface.bulkInsert('Transactions', [{
-      status: 0,
       totalPricing: 200000,
       address: "D2, Bình Thạnh",
       phonenumber: "0933122266",
+      ProductId: 1,
       CustomerId: 1,
+      StatusId: 1,
       createdAt: date,
       updatedAt: date
     }], {});

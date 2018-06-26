@@ -90,6 +90,19 @@
             <a onclick="return edit(7)" href="#">Chi tiết >></a>
         </div>
     </div>
+    {{#each customers}}
+    <div class="customer" id={{id}}>
+        <img src="/images/admin/customer.png" alt="">
+        <div class="decribe">
+            <p>MSKH: {{id}}</p>
+            <p>Tên: {{name}}</p>
+            <p>Địa chỉ: {{address}}</p>
+            <p>Email: {{email}}</p>
+            <p>Phone: {{phonenumber}}</p>
+            <a onclick="return edit({{id}})" href="#">Chi tiết >></a>
+        </div>
+    </div>
+    {{/each}}
 </section>
 
 <div class="overlay edit-customer" style="display: none;">

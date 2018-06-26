@@ -8,6 +8,18 @@ module.exports = {
       Name: 'Áo thun nữ',
       createdAt: date,
       updatedAt: date
+    }, {
+      Name: 'Áo thun nam',
+      createdAt: date,
+      updatedAt: date
+    }, {
+      Name: 'Áo thun cặp',
+      createdAt: date,
+      updatedAt: date
+    }, {
+      Name: 'Áo thun nhóm',
+      createdAt: date,
+      updatedAt: date
     }], {});
   },
 

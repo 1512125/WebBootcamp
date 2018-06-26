@@ -13,10 +13,13 @@ var csrfProtection = csrf();
 
 router.use(csrfProtection);
 // Setting for app here
+var Handlebars     = require('handlebars');
+var HandlebarsIntl = require('handlebars-intl');
+HandlebarsIntl.registerWith(Handlebars);
+
 app.use(express.static(__dirname + '/public'));
 var expressHbs = require('express-handlebars');
 var paginateHelper = require('express-handlebars-paginate');
-
 var hbs = expressHbs.create({
     extname: 'hbs',
     defaultLayout: 'layout',

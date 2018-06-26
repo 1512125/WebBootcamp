@@ -10,9 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     phonenumber: DataTypes.STRING,
     note: DataTypes.TEXT,
     admin: DataTypes.BOOLEAN
-  }, {});
+  }, {})
+
   Customer.associate = function (models) {
     Customer.hasMany(models.Transaction);
-  };
+  }
+  
   return Customer;
 };

@@ -216,6 +216,26 @@
     </div>
 </div>
 
+{{#each transactions}}
+<div class="products product{{statusId}}" id="{{id}}">
+    <img src="/images/product_home/i1.jpeg" alt="img">
+    <div class="describe">
+        <a class="title" href="">Áo thun nam</a>
+        <p>Số lượng: 15</p>
+        <p>Tổng giá: {{totalPricing}}</p>
+        <p>Khách hàng:
+            <a href="#">{{Customer.name}}</a>
+        </p>
+        <p>Địa chỉ: {{address}}</p>
+        <div class="inline">
+            <p>{{formatDate updatedAt year="numeric" month="narrow" day="numeric" hour="numeric" minute="numeric"}}</p>
+            <p>Tình trạng: {{Status.statusName}}</p>
+            <a onclick="return edit(12)" href="#">Chi tiết >></a>
+        </div>
+    </div>
+</div>    
+{{/each}}
+
 <div class="overlay edit-customer" style="display: none;">
     <div class="login-wrapper">
         <div class="login-content">
