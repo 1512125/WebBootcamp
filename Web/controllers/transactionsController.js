@@ -9,6 +9,7 @@ controller.getAll = function(callback){
         include: [models.Status, models.Customer, models.Product]
     })
     .then(function(transactions){
+        console.log(transactions);
         callback(transactions);
     })
 };

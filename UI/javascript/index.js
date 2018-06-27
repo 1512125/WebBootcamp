@@ -72,5 +72,5 @@ $(function () {
 });
 
 function changeToClient() {
-    window.location.assign('client.html')
+    window.location.assign('/client')
 }
