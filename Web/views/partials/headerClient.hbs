@@ -6,7 +6,7 @@
         </a>
         <div class="dropdown">
             <button class="dropbtn">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN4yYo0Yo8Cgtdf3O3WbNerQe4WDc4P3Z8TzQQrR8iHy6gq5E" alt="Hình"> {{customer.dataValues.name}}
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN4yYo0Yo8Cgtdf3O3WbNerQe4WDc4P3Z8TzQQrR8iHy6gq5E" alt="Hình"> {{userinfo.dataValues.name}}
             </button>
             <div class="dropdown-content">
                 <a href="/client/modifyClient">Sửa thông tin</a>
@@ -33,3 +33,7 @@
         <img src="/images/icon/icon-search.png" alt="Search" class="icon">
     </ul>
 </nav>
+
+<script>
+    console.log({{customer}});
+</script>

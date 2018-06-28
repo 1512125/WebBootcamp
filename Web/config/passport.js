@@ -79,7 +79,6 @@ passport.use('local-signin', new LocalStrategy({
         var isValidPassword = function (userpass, password) {
             return bCrypt.compareSync(password, userpass);
         };
-        console.log(Customer);
         models.Customer.findOne({
                 where: {
                     userLogin: userLogin

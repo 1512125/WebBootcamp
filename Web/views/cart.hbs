@@ -21,7 +21,7 @@
 <div class="container">
     <p>Bạn có
         <span>
-            <b>3</b>
+            <b>{{totalQty}}</b>
         </span> sản phẩm trong giỏ hàng</p>
     <hr>
     <table class="cart-detail">
@@ -49,72 +49,31 @@
                 Tổng cộng
             </th>
         </tr>
+        {{#each products}}
         <tr class="description">
             <td>
-                <img src="/images/cart/1_full.png" width="100%">
+                <img src="{{item.imagepathLarge}}" width="100%">
             </td>
             <td>
-                <p style="color: blue">Áo thun khoác cổ tròn</p>
+                <p style="color: blue">{{item.title}}</p>
                 <p>Size: M</p>
             </td>
             <td>
-                <p id="price">200000</p>
+                <p id="price">{{price}}</p>
             </td>
             <td>
                 <p>
-                    <span id="quantity">1</span>
+                    <span id="quantity">{{qty}}</span>
                     <img src="/images/arrow/up-arrow-black.png">
                 </p>
             </td>
             <td>
-                <p id="money">200000</p>
+                <p id="money">{{price}}</p>
             </td>
         </tr>
-        <tr class="description">
-            <td>
-                <img src="/images/cart/1_full.png" width="100%">
-            </td>
-            <td>
-                <p style="color: blue">Áo thun khoác cổ tròn</p>
-                <p>Size: M</p>
-            </td>
-            <td>
-                <p id="price">200000</p>
-            </td>
-            <td>
-                <p>
-                    <span id="quantity">1</span>
-                    <img src="/images/arrow/up-arrow-black.png">
-                </p>
-            </td>
-            <td>
-                <p id="money">200000</p>
-            </td>
-        </tr>
-        <tr class="description">
-            <td>
-                <img src="/images/cart/1_full.png" width="100%">
-            </td>
-            <td>
-                <p style="color: blue">Áo thun khoác cổ tròn</p>
-                <p>Size: M</p>
-            </td>
-            <td>
-                <p id="price">200000</p>
-            </td>
-            <td>
-                <p>
-                    <span id="quantity">1</span>
-                    <img src="/images/arrow/up-arrow-black.png">
-                </p>
-            </td>
-            <td>
-                <p id="money">200000</p>
-            </td>
-        </tr>
+        {{/each}}
     </table>
     <hr>
-
     <div class="row">
         <div class="col-5 promotion-code">
             <p>Nhập mã khuyến mãi</p>
@@ -127,7 +86,7 @@
             <p>Tổng số lượng</p>
             <hr>
             <p>Tổng cộng:
-                <span id="sum"></span>
+                <span id="sum">{{totalPrice}}</span>
             </p>
             <div>
                 <button data-toggle="modal" data-target="#myModal">Tiến hành thanh toán</button>

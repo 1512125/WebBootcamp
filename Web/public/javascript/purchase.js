@@ -16,6 +16,6 @@ function inputChange() {
     $('#quantity').attr('value', quantity)
 }
 
-function moveToCart() {
-    window.location.assign('cart.html')
+function moveToCart(productionId) {
+    window.location.assign('/cart/' + productionId)
 }

@@ -65,14 +65,17 @@ app.use(flash());
 require('./config/passport.js');
 
 app.use(session({
-	secret: process.env.FOO_COOKIE_SECRET,
-	resave: false,
-	saveUninitialized: false,
-	store: new(require('connect-pg-simple')(session))({
-		conString: 'pg://' + "postgres" + ':' + "123456" + "@" + "127.0.0.1" + '/' + "shoppingCart",
-		tableName: 'session'
-	}),
-	cookie: { secure: true, maxAge: null }
+    secret: process.env.FOO_COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new(require('connect-pg-simple')(session))({
+        conString: 'pg://' + "postgres" + ':' + "123456" + "@" + "127.0.0.1" + '/' + "shoppingCart",
+        tableName: 'session'
+    }),
+    cookie: {
+        secure: true,
+        maxAge: null
+    }
 }))
 app.use(cookieParser());
 // app.use(csrf());
@@ -98,16 +101,6 @@ app.post('/signin', passport.authenticate('local-signin', {
     failureRedirect: '/'
 }));
 
-function isLoggedIn(req, res, next) {
-
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated())
-        return next();
-
-    // if they aren't redirect them to the home page
-    res.redirect('/');
-}
-
 app.get('/logout', (req, res) => {
     req.logout();
     req.session.destroy(function (err) {
@@ -119,8 +112,9 @@ var admin = require('./routes/admin');
 app.use('/admin', admin);
 var shop = require('./routes/shop');
 app.use('/shop', shop);
-// var cart = require('./routes/transaction')
-// app.use('/cart', cart);
+
+var cart = require('./routes/transaction')
+app.use('/cart', cart);
 
 // Define your routes here
 
@@ -139,10 +133,6 @@ app.get('/', (req, res) => {
 
 app.get('/design', (req, res) => {
     res.render('design')
-})
-
-app.get('/cart', (req, res) => {
-    res.render('cart')
 })
 
 app.get('/cart/COD', (req, res) => {
@@ -169,13 +159,7 @@ app.get('/cart/paypal/:money', (req, res) => {
         },
         "transactions": [{
             "item_list": {
-                "items": [{
-                    "name": "Red Sox Hat",
-                    "sku": "001",
-                    "price": "25.00",
-                    "currency": "USD",
-                    "quantity": 1
-                }]
+                "items": req.session.cart
             },
             "amount": {
                 "currency": "USD",
@@ -233,12 +217,14 @@ app.get('/cart/COD', (req, res) => {
     res.render('cart/COD');
 })
 
-const {OnePayInternational} = require('vn-payments');
+const {
+    OnePayInternational
+} = require('vn-payments');
 const onepayDom = new OnePayInternational({
-	paymentGateway: 'https://mtf.onepay.vn/onecomm-pay/vpc.op',
-	merchant: 'ONEPAY',
-	accessCode: 'D67342C2',
-	secureSecret: 'A3EFDFABA8653DF2342E8DAC29B51AF0',
+    paymentGateway: 'https://mtf.onepay.vn/onecomm-pay/vpc.op',
+    merchant: 'ONEPAY',
+    accessCode: 'D67342C2',
+    secureSecret: 'A3EFDFABA8653DF2342E8DAC29B51AF0',
 });
 app.get('/cart/VNPay/:money', (req, res) => {
     let money = Number(req.params.money);
