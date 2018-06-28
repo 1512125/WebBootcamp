@@ -9,8 +9,12 @@ passport.serializeUser(function (customer, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    Customer.findById(id, function (err, customer) {
-        done(err, customer);
+    Customer.findById(id, function (customer) {
+        if (customer) {
+            done(null, customer);
+        }
+        else {
+        }
     });
 });
 
@@ -50,7 +54,8 @@ passport.use('local-signup', new LocalStrategy({
                 'userLogin': userLogin,
                 "password": userPassword,
                 "name": req.body.name,
-                "email": req.body.email
+                "email": req.body.email,
+                "admin": false
             };
 
             models.Customer.create(data).then(function (newUser, created) {

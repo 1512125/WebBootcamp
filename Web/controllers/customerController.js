@@ -25,20 +25,6 @@ controller.getByUserName = function(name, callback){
     })
 };
 
-controller.getByUserName = function(name, callback){
-    models.Customer
-    .findOne({
-        where: {
-            userLogin: name
-        }
-    }, {
-        raw: true
-    })
-    .then(function(customer){
-        callback(customer);
-    })
-};
-
 controller.getById = function(id, callback){
     models.Customer
     .findOne({
