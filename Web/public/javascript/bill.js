@@ -1,13 +1,13 @@
-$(document).ready(function () {
-    var x = '.products';
-    $('#nav a').click(function () {
-        var temp = $(this).data('quote');
-        console.log(temp);
-        $(x).hide();
-        if (temp != 'all') $('.' + temp).show();
-        else $(x).show();
-    })
-})
+// $(document).ready(function () {
+//     var x = '.products';
+//     $('#nav a').click(function () {
+//         var temp = $(this).data('quote');
+//         console.log(temp);
+//         $(x).hide();
+//         if (temp != 'all') $('.' + temp).show();
+//         else $(x).show();
+//     })
+// })
 
 function edit(e) {
     var p = $('.products')[e - 1];

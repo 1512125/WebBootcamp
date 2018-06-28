@@ -4,227 +4,22 @@
 <h2 id="title">Quản lý đơn hàng</h2>
 
 <section id="nav">
-    <a data-quote="all" href="#">Tất cả</a>
-    <a data-quote="product1" href="#">Đặt hàng</a>
-    <a data-quote="product2" href="#">Sản xuất</a>
-    <a data-quote="product3" href="#">Giao hàng</a>
-    <a data-quote="product4" href="#">Hoàn thành</a>
+    <a data-quote="all" href="/admin/bill">Tất cả</a>
+    
+    {{#each status}}
+    <a data-quote="product{{id}}" href="/admin/bill/{{id}}">{{statusName}}</a>
+    {{/each}}
 </section>
 
-<div class="products product1">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Vừa đặt hàng</p>
-            <a onclick="return edit(1)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product4">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đã hoàn thành</p>
-            <a onclick="return edit(2)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product1">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Vừa đặt hàng</p>
-            <a onclick="return edit(3)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product1">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Vừa đặt hàng</p>
-            <a onclick="return edit(4)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product2">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang sản xuất</p>
-            <a onclick="return edit(5)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product2">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang sản xuất</p>
-            <a onclick="return edit(6)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product3">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang giao hàng</p>
-            <a onclick="return edit(7)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product4">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đã hoàn thành</p>
-            <a onclick="return edit(8)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product2">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang sản xuất</p>
-            <a onclick="return edit(9)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product4">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đã hoàn thành</p>
-            <a onclick="return edit(10)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product3">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang giao hàng</p>
-            <a onclick="return edit(11)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-<div class="products product3">
-    <img src="/images/product_home/i1.jpeg" alt="img">
-    <div class="describe">
-        <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
-        <p>Tổng giá: 1.950.000</p>
-        <p>Khách hàng:
-            <a href="#">Customer 2</a>
-        </p>
-        <p>Địa chỉ: D2, Bình Thạnh</p>
-        <div class="inline">
-            <p>24/4/2018</p>
-            <p>Tình trạng: Đang giao hàng</p>
-            <a onclick="return edit(12)" href="#">Chi tiết >></a>
-        </div>
-    </div>
-</div>
-
 {{#each transactions}}
-<div class="products product{{statusId}}" id="{{id}}">
+<div class="products product{{StatusId}}" id="{{id}}">
     <img src="/images/product_home/i1.jpeg" alt="img">
     <div class="describe">
         <a class="title" href="">Áo thun nam</a>
-        <p>Số lượng: 15</p>
+        <p>Số lượng: {{num}}</p>
         <p>Tổng giá: {{totalPricing}}</p>
         <p>Khách hàng:
-            <a href="#">{{Customer.name}}</a>
+            <a href="/admin/customer">{{Customer.name}}</a>
         </p>
         <p>Địa chỉ: {{address}}</p>
         <div class="inline">
@@ -235,7 +30,7 @@
     </div>
 </div>    
 {{/each}}
-
+{{>pagination}}
 <div class="overlay edit-customer" style="display: none;">
     <div class="login-wrapper">
         <div class="login-content">

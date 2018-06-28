@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Transaction = sequelize.define('Transaction', {
+    num: DataTypes.INTEGER,
     totalPricing: DataTypes.INTEGER,
     address: DataTypes.STRING,
     phonenumber: DataTypes.STRING,

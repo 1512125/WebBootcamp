@@ -5,9 +5,7 @@ var models = require('../models');
 
 controller.getAll = function(callback){
     models.Product
-    .findAll({
-        where: {admin: false}
-    })
+    .findAll()
     .then(function(products){
         callback(products);
     })
@@ -16,7 +14,17 @@ controller.getAll = function(callback){
 controller.getById = function(id, callback){
     models.Product
     .findOne({ 
-        where: {id: id},
+        where: {id: id}
+    })
+    .then(function(product){
+        callback(product);
+    });
+};
+
+ controller.getAllWithType = function(id, callback){
+    models.Product
+    .findOne({ 
+        where: {TypeId: id}
     })
     .then(function(product){
         callback(product);

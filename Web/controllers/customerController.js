@@ -5,7 +5,9 @@ var models = require('../models');
 
 controller.getAll = function(callback){
     models.Customer
-    .findAll()
+    .findAll({
+        where: {admin: false}
+    })
     .then(function(customers){
         callback(customers);
     })

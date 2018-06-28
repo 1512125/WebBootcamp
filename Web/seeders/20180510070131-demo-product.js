@@ -6,7 +6,31 @@ module.exports = {
 
     return queryInterface.bulkInsert('Products', [{
       title: 'Áo thun nữ',
-      imagepathLarge: '/images/bcd.jpg',
+      imagepathLarge: '/images/product_home/i1.jpeg',
+      pricing: 200000,
+      description: 'Áo dành cho con gái',
+      TypeId: 1,
+      createdAt: date,
+      updatedAt: date
+    }, {
+      title: 'Áo thun nữ',
+      imagepathLarge: '/images/product_home/i1.jpeg',
+      pricing: 200000,
+      description: 'Áo dành cho con gái',
+      TypeId: 1,
+      createdAt: date,
+      updatedAt: date
+    }, {
+      title: 'Áo thun nữ',
+      imagepathLarge: '/images/product_home/i1.jpeg',
+      pricing: 200000,
+      description: 'Áo dành cho con gái',
+      TypeId: 1,
+      createdAt: date,
+      updatedAt: date
+    }, {
+      title: 'Áo thun nữ',
+      imagepathLarge: '/images/product_home/i1.jpeg',
       pricing: 200000,
       description: 'Áo dành cho con gái',
       TypeId: 1,

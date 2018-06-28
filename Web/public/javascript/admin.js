@@ -59,3 +59,19 @@ d = n.getDate();
 if (d < 10) res += '0'
 res += d;
 document.getElementById("end").value = res;
+
+function filter(a) {
+  $('.buttonSubmit').hide();
+  if (a == 0) {
+    $('#code')[0].value = '';
+    $('#name')[0].value = '';
+    $('.butAdd').show();
+  } else {
+    a = '#col' + a;
+    var p = $('#a td');
+    $('#code')[0].value = p.children[0].innerText;;
+    $('#name')[0].value = p.children[1].innerText;
+    $('.butChange').show();    
+  }
+  $('.add-cloth').show();
+}

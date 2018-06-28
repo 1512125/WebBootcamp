@@ -41,7 +41,7 @@ function filter(a) {
     }
     var p = $('.fashion')[a - 1];
     console.log(p.className);
-    8
+    
     $('#code')[0].value = $(p).data('code');
     $('#name')[0].value = p.children[1].innerText;
     $('#price')[0].value = numberic(p.children[2].innerText);

@@ -4,16 +4,52 @@ var router = express.Router()
 var customersController = require('../controllers/customerController')
 var transactionsController = require('../controllers/transactionsController')
 var productsController = require('../controllers/productsController')
-
+var typeController = require('../controllers/typeController');
 
 router.get('/', (req, res)=>{
-	res.render('admin/admin', {layout: "layoutAdmin"})
+	typeController.getAll((type)=>{
+		res.render('admin/admin', {
+			layout: "layoutAdmin",
+			type: type
+		})
+	})
 })
 
 router.get('/bill', (req, res)=>{
-	transactionsController.getAll((transactions)=>{
-		res.render('admin/bill', {layout: "layoutAdmin", transactions: transactions})
-		console.log(date(transactions[0].createdAt))
+	transactionsController.getAllStatus((status)=>{
+		transactionsController.getAll((transactions)=>{
+			var page = 1
+			var rowInPage = 4
+			if (req.param('p')) page = req.param('p')
+			var pageCount = Math.round(transactions.length / rowInPage + 0.5)
+			var pagination = {page: page, pageCount: pageCount}
+			transactions = transactions.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+			res.render('admin/bill', {
+				layout: "layoutAdmin", 
+				pagination: pagination,
+				transactions: transactions,
+				status: status
+			})
+		})
+	})
+})
+
+router.get('/bill/:id', (req, res)=>{
+	transactionsController.getAllStatus((status)=>{
+		transactionsController.getAllWithStatus(req.params.id, (transactions)=>{
+			var page = 1
+			var rowInPage = 4
+			if (req.param('p')) page = req.param('p')
+			var pageCount = Math.round(transactions.length / rowInPage + 0.5)
+			var pagination = {page: page, pageCount: pageCount}
+			transactions = transactions.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+			res.render('admin/bill', {
+				layout: "layoutAdmin", 
+				pagination: pagination,
+				transactions: transactions,
+				status: status
+			})
+		})
 	})
 })
 
@@ -35,8 +71,38 @@ router.get('/customer', (req, res)=>{
 })
 
 router.get('/clothes', (req, res)=>{
-	productsController.getAll((products)=>{
-		res.render('admin/clothes', {layout: "layoutAdmin", products: products})
+	typeController.getAll((type)=>{
+		productsController.getAll((products)=>{
+			var page = 1
+			var rowInPage = 4
+			if (req.param('p')) page = req.param('p')
+			var pageCount = Math.round(products.length / rowInPage + 0.5)
+			var pagination = {page: page, pageCount: pageCount}
+			products = products.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+			res.render('admin/clothes', {
+				layout: "layoutAdmin",
+				products: products,
+				type: type
+			})
+		})
+	})
+})
+
+router.get('/clothes/:id', (req, res)=>{
+	typeController.getAll((type)=>{
+		productsController.getAllWithType(req.params.id, (products)=>{
+			var page = 1
+			var rowInPage = 4
+			if (req.param('p')) page = req.param('p')
+			var pageCount = Math.round(products.length / rowInPage + 0.5)
+			var pagination = {page: page, pageCount: pageCount}
+			products = products.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+			res.render('admin/clothes', {
+				layout: "layoutAdmin",
+				products: products,
+				type: type
+			})
+		})
 	})
 })
 

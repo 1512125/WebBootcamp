@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" media="screen" href="/style/clothes.css"/>
+<script src="/javascript/clothes.js"></script>
+
 <h2 id="title">Tổng quan</h2>
 
 <section id="sumary">
@@ -24,59 +27,48 @@
 </section>
 
 <section id="inventory">
-    <h2>Danh sách sản phẩm gần hết hàng</h2>
+    <h2>Danh sách loại sản phẩm</h2>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Mã</th>
                 <th scope="col">Loại</th>
-                <th scope="col">Giá bán</th>
-                <th scope="col">Sô lượng</th>
-                <th scope="col">&nbsp;</th>
+                <th scope="col"><img onclick="return filter(0)" class="cursor icon" src="/images/admin/icon-add.png" alt="add"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Áo thun trơn</td>
-                <td>Áo thun nữ</td>
-                <td>125,000</td>
-                <td>2</td>
+            {{#each type}}
+            <tr id="col{{id}}">
+                <td scope="row">{{id}}</td>
+                <td>{{Name}}</td>
                 <td>
-                    <img class="cursor" src="/images/admin/icon-edit.png" alt="edit">
+                    <img onclick="return filter({{id}})" class="cursor" src="/images/admin/icon-edit.png" alt="edit">
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Áo thun trơn</td>
-                <td>Áo thun nữ</td>
-                <td>125,000</td>
-                <td>2</td>
-                <td>
-                    <img class="cursor" src="/images/admin/icon-edit.png" alt="edit">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Áo thun trơn</td>
-                <td>Áo thun nữ</td>
-                <td>125,000</td>
-                <td>2</td>
-                <td>
-                    <img class="cursor" src="/images/admin/icon-edit.png" alt="edit">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Áo thun trơn</td>
-                <td>Áo thun nam</td>
-                <td>125,000</td>
-                <td>4</td>
-                <td>
-                    <img class="cursor" src="/images/admin/icon-edit.png" alt="edit">
-                </td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </section>
+
+<div class="overlay add-cloth" style="display: none;">
+    <div class="login-wrapper">
+        <div class="login-content">
+            <a class="close">x</a>
+            <h3>Thêm loại áo</h3>
+            <form>
+                <div id="form">
+                    <label for="code">Mã loại:</label>
+                    <input class="text" type="text" name="code" id="code" disabled>
+                    <br>
+                    <label for="name">Tên loại:</label>
+                    <input class="text" type="text" name="name" id="name">
+                    <br>
+                    <br>
+                    <button name="type" value="add" type="submit" class="btn btn-success submitbuton butAdd">Thêm</button>
+                    <button name="type" value="change" type="submit" class="btn btn-info submitbuton butChange">Sửa</button>
+                    <button name="type" value="del" type="submit" class="btn btn-danger submitbuton butChange">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
