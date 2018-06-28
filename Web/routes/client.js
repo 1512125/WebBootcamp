@@ -30,19 +30,16 @@ router.get('/design', (req, res) => {
 });
 
 router.get('/cart', (req, res) => {
-    if (!req.seesion.cart) {
-        res.render('client/cart', {
-            layout: "layoutClient"
-        }, {
-            products: null
+    if (req.session.cart) {
+        var cart = new Cart(req.session.cart);
+        res.render('cart', {
+            products: cart.generateArray(),
+            totalPrice: cart.totalPrice,
+            totalQty: cart.totalQty
         });
     }
-    var cart = new Cart(req.seesion.cart);
-    res.render('client/cart', {
-        products: cart.generateArray(),
-        totalPrice: cart.totalPrice,
-        totalQty: cart.totalQty
-    });
+    else
+        res.render('cart');
 
 });
 
