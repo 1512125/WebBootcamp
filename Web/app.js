@@ -9,15 +9,12 @@ var env = require('dotenv').load();
 var csrf = require('csurf');
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
-
 var csrfProtection = csrf();
 
-router.use(csrfProtection);
 // Setting for app here
-var Handlebars     = require('handlebars');
+var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 HandlebarsIntl.registerWith(Handlebars);
-app.use(expressValidator()); 
 
 app.use(express.static(__dirname + '/public'));
 var expressHbs = require('express-handlebars');
@@ -43,22 +40,63 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(expressValidator());
 app.use(cookieParser());
-// app.use(validator());
+
 // For Passport
 const expressSession = require('express-session');
 app.use(expressSession({
-    secret: 'mySecretKey'
+    secret: 'mySecretKey',
+    resave: false,
+    saveUninitialized: false
 }));
 
+const conObject = {
+    user: 'postgres',
+    password: 123456,
+    host: '127.0.0.1', // or whatever it may be
+    port: 5432,
+    database: 'shoppingCart'
+};
+
+const pgSession = require('connect-pg-simple')(session);
+
+const pgStoreConfig = {
+    pgPromise: require('pg-promise')({
+        promiseLib: require('bluebird')
+    })({
+        conObject
+    }), // 
+}
+
 app.use(session({
-    secret: 'keyboard cat',
+    store: new pgSession(pgStoreConfig),
+    secret: 'jW8aor76jpPX', // session secret
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 30 * 24 * 60 * 60 * 1000
+    }
 })); // session secret
+app.use(csrf());
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+app.use(function (req, res, next) {
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    next();
+});
+
+// app.use(function (req, res, next) {
+//     res.locals.csrftoken = req.csrfToken();
+//     var token = req.csrfToken();
+//     res.cookie('XSRF-TOKEN', token);
+//     res.locals.csrfToken = token;
+//     next();
+// });
+
 app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/client',
     failureRedirect: '/',
@@ -70,23 +108,23 @@ app.post('/signin', passport.authenticate('local-signin', {
     failureRedirect: '/'
 }));
 
+app.get('/logout', (req, res) => {
+    req.logout();
+    req.session.destroy(function (err) {
+        res.redirect('/');
+    });
+});
+
 require('./config/passport.js');
-//var customer = require('./routes/admin');
-//app.use('/customer', customer);
-// var product = require('./routes/product');
-// app.use('/product', product);
-// var productdetail = require('./routes/productdetail');
-// app.use('/productdetail', productdetails);
-// var transaction = require('./routes/transaction');
-// app.use('/transaction', transactions);
-// var type = require('./routes/type');
-// app.use('/type', types);
+
 var admin = require('./routes/admin');
 app.use('/admin', admin);
 var shop = require('./routes/shop');
 app.use('/shop', shop);
 var client = require('./routes/client');
 app.use('/client', client);
+// var cart = require('./routes/transaction')
+// app.use('/cart', cart);
 
 // Define your routes here
 
@@ -97,7 +135,9 @@ app.get('/sync', function (req, res) {
 });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        csrfToken: req.csrfToken()
+    });
 })
 
 app.get('/design', (req, res) => {
@@ -121,8 +161,8 @@ paypal.configure({
 
 app.get('/cart/paypal/:money', (req, res) => {
     let money = Number((req.params.money) / 22000);
-    var payment = {
-        "intent": "authorize",
+    const create_payment_json = {
+        "intent": "sale",
         "payer": {
             "payment_method": "paypal"
         },
@@ -131,35 +171,60 @@ app.get('/cart/paypal/:money', (req, res) => {
             "cancel_url": "/cart/err"
         },
         "transactions": [{
-            "amount": {
-                "total": money,
-                "currency": "USD"
+            "item_list": {
+                "items": [{
+                    "name": "Red Sox Hat",
+                    "sku": "001",
+                    "price": "25.00",
+                    "currency": "USD",
+                    "quantity": 1
+                }]
             },
-            "description": " money for products "
+            "amount": {
+                "currency": "USD",
+                "total": money
+            },
+            "description": "Hat for the best team ever"
         }]
-    }
+    };
 
-
-    // call the create Pay method 
-    createPay(payment)
-        .then((transaction) => {
-            var id = transaction.id;
-            var links = transaction.links;
-            var counter = links.length;
-            while (counter--) {
-                if (links[counter].method == 'REDIRECT') {
-                    // redirect to paypal where user approves the transaction 
-                    return res.redirect(links[counter].href)
+    paypal.payment.create(create_payment_json, function (error, payment) {
+        if (error) {
+            throw error;
+        } else {
+            for (let i = 0; i < payment.links.length; i++) {
+                if (payment.links[i].rel === 'approval_url') {
+                    res.redirect(payment.links[i].href);
                 }
             }
-        })
-        .catch((err) => {
-            console.log(err);
-            res.redirect('/cart/err');
-        });
+        }
+    });
+
 })
 
 app.get('/cart/success', (req, res) => {
+    const payerId = req.query.PayerID;
+    const paymentId = req.query.paymentId;
+
+    const execute_payment_json = {
+        "payer_id": payerId,
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": "25.00"
+            }
+        }]
+    };
+
+    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+        if (error) {
+            console.log(error.response);
+            throw error;
+        } else {
+            console.log(JSON.stringify(payment));
+            res.send('Success');
+        }
+    });
     res.render('cart/success');
 })
 
@@ -171,7 +236,9 @@ app.get('/cart/COD', (req, res) => {
     res.render('cart/COD');
 })
 
-const {OnePayInternational} = require('vn-payments');
+const {
+    OnePayInternational
+} = require('vn-payments');
 var onepayIntl = new OnePayInternational({
     paymentGateway: 'https://mtf.onepay.vn/vpcpay/vpcpay.op',
     merchant: 'TESTONEPAY',

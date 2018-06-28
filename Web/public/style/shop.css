@@ -142,7 +142,7 @@ li {
     font-weight: bold;
 }
 
-.overlay {
+.overlay1 {
     display: none;
     background: rgba(70, 120, 73, 0.75);
     color: #fff;
@@ -158,7 +158,7 @@ li {
     text-align: center;
 }
 
-.overlay h3 {
+.overlay1 h3 {
     margin: 0;
     padding: 0;
     font-size: 1.6em !important;

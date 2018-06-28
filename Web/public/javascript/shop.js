@@ -35,14 +35,14 @@ $(document).ready(function () {
             title = '';
         }
 
-        $(this).append('<div class="overlay"></div>')
-        var overlay = $(this).children('.overlay');
+        $(this).append('<div class="overlay1"></div>')
+        var overlay = $(this).children('.overlay1');
         overlay.html('<h3>' + title + '</h3>');
         overlay.fadeIn(600);
     });
 
     $('.product a').on('mouseleave', function () {
-        var overlay = $(this).children('.overlay');
+        var overlay = $(this).children('.overlay1');
         overlay.fadeOut(800);
         overlay.remove();
     });

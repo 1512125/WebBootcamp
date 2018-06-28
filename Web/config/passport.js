@@ -22,9 +22,9 @@ passport.use('local-signup', new LocalStrategy({
     req.checkBody('userLogin', 'Invalid user login').notEmpty();
     req.checkBody('password', 'Invalid password').notEmpty();
     var errors = req.validationErrors();
-    if(errors){
+    if (errors) {
         var messages = [];
-        errors.forEach(function(error){
+        errors.forEach(function (error) {
             messages.push(error.msg);
         });
         return done(null, false, req.flash('error', messages));
@@ -52,7 +52,7 @@ passport.use('local-signup', new LocalStrategy({
                 "name": req.body.name,
                 "email": req.body.email
             };
-    
+
             models.Customer.create(data).then(function (newUser, created) {
                 if (!newUser) {
                     return done(null, false);
@@ -76,36 +76,36 @@ passport.use('local-signin', new LocalStrategy({
         };
         console.log(Customer);
         models.Customer.findOne({
-            where: {
-                userLogin: userLogin
-            }
-        }, {
-            raw: true
-        })
-        .then(customer => {
-            
-            if (!customer) {
-                console.log('fail')
-                return done(null, false, {
-                    message: 'User login does not exist'
-                });
-            }
-            if (!isValidPassword(customer.password, password)) {
-                console.log('fail')
-                return done(null, false, {
-                    message: 'Incorrect password.'
-                });
+                where: {
+                    userLogin: userLogin
+                }
+            }, {
+                raw: true
+            })
+            .then(customer => {
 
-            }
-            console.log('success')
-            var userinfo = customer.get();
-            return done(null, userinfo);
-        }).catch(function (err) {
-            console.log("Error:", err);
-            return done(null, false, {
-                message: 'Something went wrong with your Signin'
+                if (!customer) {
+                    console.log('fail')
+                    return done(null, false, {
+                        message: 'User login does not exist'
+                    });
+                }
+                if (!isValidPassword(customer.password, password)) {
+                    console.log('fail')
+                    return done(null, false, {
+                        message: 'Incorrect password.'
+                    });
+
+                }
+                console.log('success')
+                var userinfo = customer.get();
+                return done(null, userinfo);
+            }).catch(function (err) {
+                console.log("Error:", err);
+                return done(null, false, {
+                    message: 'Something went wrong with your Signin'
+                });
             });
-        });
 
     }
 ));

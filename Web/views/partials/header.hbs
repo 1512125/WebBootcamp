@@ -58,6 +58,7 @@
                     <input type="radio" name="receivedInformation" id="receivedInformation" /> Đăng ký nhận thông tin
                 </label>
                 <button type="submit" onclick="changeToClient()">Đăng ký</button>
+                <input type="hidden" name="_csrf" value={{csrfToken}}>
             </form>
         </div>
     </div>

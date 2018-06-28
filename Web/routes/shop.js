@@ -15,7 +15,7 @@ router.get('/', (req, res)=>{
 router.get('/:id', (req, res)=>{
     let id = req.params.id;
     productsController.getById(id, (product) => {
-        res.render('productdetail', {prodcut: product});
+        res.render('productdetail', {product: product});
     });
 })
 
