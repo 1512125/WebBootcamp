@@ -10,6 +10,7 @@ var csrf = require('csurf');
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
 var csrfProtection = csrf();
+const jwt = require('jsonwebtoken');
 
 // Setting for app here
 var Handlebars = require('handlebars');
@@ -41,7 +42,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(expressValidator());
-app.use(cookieParser());
 
 // For Passport
 const expressSession = require('express-session');
@@ -51,37 +51,25 @@ app.use(expressSession({
     saveUninitialized: false
 }));
 
-const conObject = {
-    user: 'postgres',
-    password: 123456,
-    host: '127.0.0.1', // or whatever it may be
-    port: 5432,
-    database: 'shoppingCart'
-};
-
-const pgSession = require('connect-pg-simple')(session);
-
-const pgStoreConfig = {
-    pgPromise: require('pg-promise')({
-        promiseLib: require('bluebird')
-    })({
-        conObject
-    }), // 
-}
-
-app.use(session({
-    store: new pgSession(pgStoreConfig),
-    secret: 'jW8aor76jpPX', // session secret
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 30 * 24 * 60 * 60 * 1000
-    }
-})); // session secret
-app.use(csrf());
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(flash());
+
+require('./config/passport.js');
+
+app.use(session({
+	secret: process.env.FOO_COOKIE_SECRET,
+	resave: false,
+	saveUninitialized: false,
+	store: new(require('connect-pg-simple')(session))({
+		conString: 'pg://' + "postgres" + ':' + "123456" + "@" + "127.0.0.1" + '/' + "shoppingCart",
+		tableName: 'session'
+	}),
+	cookie: { secure: true, maxAge: null }
+}))
+app.use(cookieParser());
+// app.use(csrf());
+
 
 app.use(function (req, res, next) {
     res.locals.login = req.isAuthenticated();
@@ -89,13 +77,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-// app.use(function (req, res, next) {
-//     res.locals.csrftoken = req.csrfToken();
-//     var token = req.csrfToken();
-//     res.cookie('XSRF-TOKEN', token);
-//     res.locals.csrfToken = token;
-//     next();
-// });
+var client = require('./routes/client');
+app.use('/client', client);
 
 app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/client',
@@ -108,6 +91,16 @@ app.post('/signin', passport.authenticate('local-signin', {
     failureRedirect: '/'
 }));
 
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+
 app.get('/logout', (req, res) => {
     req.logout();
     req.session.destroy(function (err) {
@@ -115,14 +108,10 @@ app.get('/logout', (req, res) => {
     });
 });
 
-require('./config/passport.js');
-
 var admin = require('./routes/admin');
 app.use('/admin', admin);
 var shop = require('./routes/shop');
 app.use('/shop', shop);
-var client = require('./routes/client');
-app.use('/client', client);
 // var cart = require('./routes/transaction')
 // app.use('/cart', cart);
 
@@ -135,9 +124,10 @@ app.get('/sync', function (req, res) {
 });
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        csrfToken: req.csrfToken()
-    });
+    res.render('index');
+    // {
+    //     csrfToken: req.csrfToken()
+    // }
 })
 
 app.get('/design', (req, res) => {
@@ -236,14 +226,12 @@ app.get('/cart/COD', (req, res) => {
     res.render('cart/COD');
 })
 
-const {
-    OnePayInternational
-} = require('vn-payments');
-var onepayIntl = new OnePayInternational({
-    paymentGateway: 'https://mtf.onepay.vn/vpcpay/vpcpay.op',
-    merchant: 'TESTONEPAY',
-    accessCode: '6BEB2546',
-    secureSecret: '6D0870CDE5F24F34F3915FB0045120DB',
+const {OnePayInternational} = require('vn-payments');
+const onepayDom = new OnePayInternational({
+	paymentGateway: 'https://mtf.onepay.vn/onecomm-pay/vpc.op',
+	merchant: 'ONEPAY',
+	accessCode: 'D67342C2',
+	secureSecret: 'A3EFDFABA8653DF2342E8DAC29B51AF0',
 });
 app.get('/cart/VNPay/:money', (req, res) => {
     let money = Number(req.params.money);
