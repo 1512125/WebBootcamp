@@ -10,7 +10,10 @@ function search() {
 }
 
 function edit(e) {
-    var p = $('.customer')[e - 1].children;
+    var id = '#customer' + e;
+    var p = $(id);
+    p = p[0].children;
+    console.log(p);
     $('.image img').attr('src', $(p[0]).attr('src'));
     p = p[1].children;
     $('#code')[0].value = xlstring(p[0].innerText);

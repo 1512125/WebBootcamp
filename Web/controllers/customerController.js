@@ -67,4 +67,21 @@ controller.findById = function(id, callback){
     })
 };
 
+controller.updateById = function(box, callback){
+    models.Customer
+    .update({
+        name: box.name,
+        //imagepath: box.imagepath,
+        address: box.address,
+        email: box.email,
+        phonenumber: box.phonenumber,
+        note: box.note,
+    }, {
+        where: box.id
+    })
+    .then(function(){
+        callback();
+    })
+};
+
 module.exports = controller;
