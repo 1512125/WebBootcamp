@@ -12,84 +12,7 @@
 
 </form>
 
-<section id="customer" >
-    <div class="customer" id="customera1">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Nguyễn Văn An</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a1')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera2">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Trần Quốc Bình</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a2')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera3">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Đào Thị Hương</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a3')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera4">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Lý Nam Đế</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a4')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera5">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Hoàng Văn Thụ</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a5')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera6">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Hồ Con Rùa</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a6')" href="#">Chi tiết >></a>
-        </div>
-    </div>
-    <div class="customer" id="customera7">
-        <img src="/images/admin/customer.png" alt="">
-        <div class="decribe">
-            <p>MSKH: C01240</p>
-            <p>Tên: Nguyễn Thị Minh Khai</p>
-            <p>Địa chỉ: Hà Nội</p>
-            <p>Email: something@gmail.com</p>
-            <p>Phone: 01643614198</p>
-            <a onclick="return edit('a7')" href="#">Chi tiết >></a>
-        </div>
-    </div>
+<section id="customer">
     {{#each customers}}
     <div class="customer" id="customer{{id}}">
         <img src="/images/admin/customer.png" alt="">
@@ -103,6 +26,32 @@
         </div>
     </div>
     {{/each}}
+
+    <div class="pagination pagination-centered">
+        <ul>
+            {{#paginate pagination type="first"}}
+            <li {{#if disabled}}class="disabled" {{/if}}>
+                <a href="?p={{n}}">First</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="previous"}}
+            <li {{#if disabled}}class="disabled" {{/if}}>
+                <a href="?p={{n}}">Prev</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="middle" limit="5"}}
+            <li {{#if active}}class="active" {{/if}}>
+                <a href="?p={{n}}">{{n}}</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="next"}}
+            <li {{#if disabled}}class="disabled" {{/if}}>
+                <a href="?p={{n}}">Next</a>
+            </li>
+            {{/paginate}} {{#paginate pagination type="last"}}
+            <li {{#if disabled}}class="disabled" {{/if}}>
+                <a href="?p={{n}}">Last</a>
+            </li>
+            {{/paginate}}
+        </ul>
+    </div>
 </section>
 
 <div class="overlay edit-customer" style="display: none;">
@@ -137,8 +86,8 @@
                     <br>
                     <textarea type="text" name="decribe" id="decribe"></textarea>
                     <br>
-                    <button name="action" value = "update" type="submit" class="btn btn-info">Thay đổi</button>
-                    <button name="action" value = "delete" type="submit" class="btn btn-danger">Xóa</button>
+                    <button name="action" value="update" type="submit" class="btn btn-info">Thay đổi</button>
+                    <button name="action" value="delete" type="submit" class="btn btn-danger">Xóa</button>
                 </div>
             </form>
         </div>

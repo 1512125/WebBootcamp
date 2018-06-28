@@ -16,6 +16,9 @@ var Handlebars = require('handlebars');
 var HandlebarsIntl = require('handlebars-intl');
 HandlebarsIntl.registerWith(Handlebars);
 
+var paginate = require('handlebars-paginate');
+Handlebars.registerHelper('paginate', paginate);
+
 app.use(express.static(__dirname + '/public'));
 var expressHbs = require('express-handlebars');
 var paginateHelper = require('express-handlebars-paginate');
@@ -26,9 +29,13 @@ var hbs = expressHbs.create({
     partialsDir: __dirname + '/views/partials/',
     pagesDir: __dirname + '/views/pages/',
     helpers: {
-        paginate: paginateHelper.createPagination
+        //paginate: paginateHelper.createPagination
     }
 });
+
+//hbs.handlebars.registerHelper('paginateHelper', paginateHelper.createPagination);
+
+
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 

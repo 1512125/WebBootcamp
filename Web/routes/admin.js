@@ -19,7 +19,17 @@ router.get('/bill', (req, res)=>{
 
 router.get('/customer', (req, res)=>{
 	customersController.getAll((customers)=>{
-		res.render('admin/customer', {layout: "layoutAdmin", customers: customers})
+		var page = 1
+		var rowInPage = 4
+		if (req.param('p')) page = req.param('p')
+		var pageCount = Math.round(customers.length / rowInPage + 0.5)
+		var pagination = {page: page, pageCount: pageCount}
+		customers = customers.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+		res.render('admin/customer', {
+			layout: "layoutAdmin", 
+			pagination: pagination,
+			customers: customers
+		})
 	})
 	
 })
