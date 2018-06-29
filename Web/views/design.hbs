@@ -3,13 +3,6 @@
 <link href="/vendor/css/bootstrap.min.css" rel="stylesheet">
 <link href="/vendor/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="/vendor/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/vendor/js/fabric.js"></script>
-<script type="text/javascript" src="/vendor/js/tshirtEditor.js"></script>
-<script type="text/javascript" src="/vendor/js/jquery.miniColors.min.js"></script>
-
 <nav aria-label="breadcrumb">
     <p>Design</p>
     <ol class="breadcrumb">
@@ -200,13 +193,13 @@
                             <td>
                                 <strong>Tổng tiền</strong>
                             </td>
-                            <td align="right">
+                            <td id="money" align="right">
                                 <strong>180000</strong>
                             </td>
                         </tr>
                     </table>
                 </p>
-                <button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" onclick="window.location.assign('cart.html')">Thêm vào giỏ hàng
+                <button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" onclick="saveDesign()">Thêm vào giỏ hàng
                     <i class="icon-briefcase icon-white"></i>
                 </button>
             </div>
@@ -221,3 +214,11 @@
         <h5 style="text-align: center">Video hướng dẫn thiết kế áo</h5>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="/vendor/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/vendor/js/fabric.js"></script>
+<script type="text/javascript" src="/vendor/js/tshirtEditor.js"></script>
+<script type="text/javascript" src="/javascript/design.js"></script>
+<script type="text/javascript" src="/vendor/js/jquery.miniColors.min.js"></script>

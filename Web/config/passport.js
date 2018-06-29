@@ -77,6 +77,8 @@ passport.use('local-signin', new LocalStrategy({
     },
     function (req, userLogin, password, done) {
         var isValidPassword = function (userpass, password) {
+            console.log(userpass, password);
+            console.log(bCrypt.compareSync(password, userpass));
             return bCrypt.compareSync(password, userpass);
         };
         models.Customer.findOne({
@@ -95,7 +97,7 @@ passport.use('local-signin', new LocalStrategy({
                     });
                 }
                 if (!isValidPassword(customer.password, password)) {
-                    console.log('fail')
+                    console.log('fail2')
                     return done(null, false, {
                         message: 'Incorrect password.'
                     });
@@ -103,6 +105,7 @@ passport.use('local-signin', new LocalStrategy({
                 }
                 console.log('success')
                 var userinfo = customer.get();
+                req.session.user = customer;
                 return done(null, userinfo);
             }).catch(function (err) {
                 console.log("Error:", err);

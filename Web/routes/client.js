@@ -8,6 +8,7 @@ var typeController = require('../controllers/typeController');
 
 router.get('/', (req, res) => {
     res.render('client/client', {
+        userinfo: req.session.user,
         layout: "layoutClient"
     })
 });
@@ -17,10 +18,11 @@ router.get('/shop', (req, res) => {
         productsController.getAll((product) => {
             res.render('client/shop', {
                 product: product,
-                types: types
-            }, {layout: "layoutClient"})
-        })
-    })
+                types: types,
+                layout: "layoutClient"
+            });
+        });
+    });
 });
 
 router.get('/design', (req, res) => {
@@ -36,10 +38,13 @@ router.get('/cart', (req, res) => {
             products: cart.generateArray(),
             totalPrice: cart.totalPrice,
             totalQty: cart.totalQty
+        }, {
+            layout: "layoutClient"
         });
-    }
-    else
-        res.render('cart');
+    } else
+        res.render('cart', {
+            layout: "layoutClient"
+        });
 
 });
 
@@ -53,14 +58,23 @@ router.get('/cart/:id', (req, res) => {
         }
         cart.add(product, product.id);
         req.session.cart = cart;
-        console.log(req.session.cart)
         res.redirect('/client/shop');
     })
 });
 
 router.get('/modifyClient', isLoggedIn, (req, res) => {
+    console.log(req.session.user);
     res.render('client/modifyClient', {
-        layout: "layoutClient"
+        userinfo: req.session.user, layout: "layoutClient"
+    });
+});
+
+router.get('/modifyClient/:info', isLoggedIn, (req, res) => {
+    var info = req.params.info;
+    info = JSON.parse(info);
+    console.log(info);
+    res.render('client/modifyClient', {
+        userinfo: req.session.user, layout: "layoutClient"
     });
 });
 

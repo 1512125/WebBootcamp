@@ -271,7 +271,7 @@ $(document).ready(function() {
         function() {
             if ($(this).attr("data-original-title") == "Show Back View") {
                 $(this).attr('data-original-title', 'Show Front View');
-                $("#tshirtFacing").attr("src", "../public/images/design/crew_back.png");
+                $("#tshirtFacing").attr("src", "/images/design/crew_back.png");
                 a = JSON.stringify(canvas);
                 canvas.clear();
                 try {
@@ -281,7 +281,7 @@ $(document).ready(function() {
 
             } else {
                 $(this).attr('data-original-title', 'Show Back View');
-                $("#tshirtFacing").attr("src", "../public/images/design/crew_front.png");
+                $("#tshirtFacing").attr("src", "/images/design/crew_front.png");
                 b = JSON.stringify(canvas);
                 canvas.clear();
                 try {
