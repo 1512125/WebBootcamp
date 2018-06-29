@@ -5,7 +5,7 @@ module.exports = {
     let date = new Date();
 
     return queryInterface.bulkInsert('Products', [{
-      title: 'Áo thun nữ',
+      title: '1 Áo thun nữ',
       imagepathLarge: '/images/product_home/i1.jpeg',
       pricing: 200000,
       description: 'Áo dành cho con gái',
@@ -13,7 +13,7 @@ module.exports = {
       createdAt: date,
       updatedAt: date
     }, {
-      title: 'Áo thun nữ',
+      title: '2 Áo thun nữ',
       imagepathLarge: '/images/product_home/i1.jpeg',
       pricing: 200000,
       description: 'Áo dành cho con gái',
@@ -21,7 +21,7 @@ module.exports = {
       createdAt: date,
       updatedAt: date
     }, {
-      title: 'Áo thun nữ',
+      title: '3 Áo thun nữ',
       imagepathLarge: '/images/product_home/i1.jpeg',
       pricing: 200000,
       description: 'Áo dành cho con gái',
@@ -29,7 +29,7 @@ module.exports = {
       createdAt: date,
       updatedAt: date
     }, {
-      title: 'Áo thun nữ',
+      title: '4 Áo thun nữ',
       imagepathLarge: '/images/product_home/i1.jpeg',
       pricing: 200000,
       description: 'Áo dành cho con gái',

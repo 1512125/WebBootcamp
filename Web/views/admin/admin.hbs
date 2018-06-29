@@ -1,5 +1,5 @@
+<script src="/javascript/admin.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="/style/clothes.css"/>
-<script src="/javascript/clothes.js"></script>
 
 <h2 id="title">Tổng quan</h2>
 
@@ -54,19 +54,19 @@
     <div class="login-wrapper">
         <div class="login-content">
             <a class="close">x</a>
-            <h3>Thêm loại áo</h3>
-            <form>
+            <h3>Quản lý loại áo</h3>
+            <form action="/admin/type" method="POST">
                 <div id="form">
                     <label for="code">Mã loại:</label>
-                    <input class="text" type="text" name="code" id="code" disabled>
+                    <input class="text" type="text" name="code" id="code" readonly>
                     <br>
                     <label for="name">Tên loại:</label>
                     <input class="text" type="text" name="name" id="name">
                     <br>
                     <br>
-                    <button name="type" value="add" type="submit" class="btn btn-success submitbuton butAdd">Thêm</button>
-                    <button name="type" value="change" type="submit" class="btn btn-info submitbuton butChange">Sửa</button>
-                    <button name="type" value="del" type="submit" class="btn btn-danger submitbuton butChange">Xóa</button>
+                    <button onclick="alert('thêm')" name="type" value="add" type="submit" class="btn btn-success submitbutton butAdd">Thêm</button>
+                    <button onclick="alert('sửa')" name="type" value="edit" type="submit" class="btn btn-info submitbutton butChange">Sửa</button>
+                    <button onclick="alert('xóa')" name="type" value="del" type="submit" class="btn btn-danger submitbutton butChange">Xóa</button>
                 </div>
             </form>
         </div>

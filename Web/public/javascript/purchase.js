@@ -16,6 +16,7 @@ function inputChange() {
     $('#quantity').attr('value', quantity)
 }
 
-function moveToCart() {
-    window.location.assign('cart.html')
+function moveToCart(productionId) {
+    var quantity = Number($('#quantity').val());
+    window.location.assign('/cart/' + productionId +'/' + quantity)
 }

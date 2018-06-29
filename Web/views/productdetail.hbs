@@ -56,7 +56,7 @@
             </div>
             <div class="quantity">
                 <input onchange="inputChange()" id="quantity" type="number" min="1" max="5" value="1" step="1" />
-                <button onclick="moveToCart()">Thêm vào giỏ</button>
+                <button onclick="moveToCart({{product.dataValues.id}})">Thêm vào giỏ</button>
             </div>
             <div class="code">
                 Mã: N/A
@@ -75,7 +75,7 @@
             <div class="tag">
                 Tags:
                 <span>
-                    <a href="../printTshirt.html">Mẫu áo nữ</a>
+                    <a href="/printTshirts">Mẫu áo nữ</a>
                 </span>
                 <span>
                     <a href="/">dl.vn</a>

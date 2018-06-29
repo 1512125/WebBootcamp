@@ -13,7 +13,7 @@
 
 <section id="customer">
     {{#each customers}}
-    <div class="customer" id="customer{{id}}">
+    <div class="customer" id="customer{{id}}" data-note="{{note}}" data-ban="{{ban}}">
         <img src="/images/admin/customer.png" alt="">
         <div class="decribe">
             <p>MSKH: {{id}}</p>
@@ -34,7 +34,7 @@
         <div class="login-content">
             <a onclick="return exit()" class="close">x</a>
             <h3>Khách hàng</h3>
-            <form action="/action_page.php" method="post">
+            <form action="/admin/customer" method="post">
                 <div class="image">
                     <img src="/images/admin/none.jpg" alt="none">
                     <input type="file" name="mf" id="mf">
@@ -45,24 +45,32 @@
                     <br>
                 </div>
                 <div id="form">
+                    <label for="ban">Khóa:</label>
+                    <input class="text" type="checkbox" name="ban" id="ban" value="on">
+                    <input type="text" name="banText" id="banText" style="display: none;">
+                    <br>
+                    <br>
                     <label for="code">Mã:</label>
-                    <input class="text" type="text" name="code" id="code" disabled>
+                    <input class="text" type="text" name="code" id="code" readonly>
                     <br>
                     <label for="name">Tên:</label>
                     <input class="text" type="text" name="name" id="name">
                     <br>
                     <label for="addr">Địa chỉ:</label>
                     <input type="text" name="addr" id="addr">
+                    <br>
                     <label for="email">Email:</label>
                     <input type="email" name="email" id="email">
+                    <br>
                     <label for="phone">Phone:</label>
                     <input type="tel" name="phone" id="phone">
+                    <br>
                     <label for="decribe">Ghi chú: </label>
                     <br>
                     <textarea type="text" name="decribe" id="decribe"></textarea>
                     <br>
                     <button name="action" value="update" type="submit" class="btn btn-info">Thay đổi</button>
-                    <button name="action" value="delete" type="submit" class="btn btn-danger">Xóa</button>
+                    <button name="action" value="delete" type="submit" class="btn btn-danger" disabled>Xóa</button>
                 </div>
             </form>
         </div>

@@ -14,6 +14,7 @@ module.exports = {
       phonenumber: '0933266013',
       note: 'Account người dùng',
       admin: false,
+      ban: false,
       createdAt: date,
       updatedAt: date
     }, {
@@ -26,6 +27,7 @@ module.exports = {
       phonenumber: '0933266013',
       note: 'Account người dùng',
       admin: false,
+      ban: false,
       createdAt: date,
       updatedAt: date
     }, {
@@ -38,6 +40,7 @@ module.exports = {
       phonenumber: '0933266013',
       note: 'Account người dùng',
       admin: false,
+      ban: false,
       createdAt: date,
       updatedAt: date
     }, {
@@ -50,6 +53,7 @@ module.exports = {
       phonenumber: '0933266013',
       note: 'Account người dùng',
       admin: false,
+      ban: false,
       createdAt: date,
       updatedAt: date
     }], {});

@@ -55,17 +55,16 @@ controller.findById = function(id, callback){
     })
 };
 
-controller.updateById = function(box, callback){
+controller.update = function(box, callback){
+    console.log(box)
     models.Customer
     .update({
-        name: box.name,
-        //imagepath: box.imagepath,
-        address: box.address,
-        email: box.email,
-        phonenumber: box.phonenumber,
         note: box.note,
+        ban: box.ban
     }, {
-        where: box.id
+        where: {
+            id: box.id
+        }
     })
     .then(function(){
         callback();

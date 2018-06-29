@@ -53,7 +53,8 @@ div#form {
 }
 
 div#form>input.text,
-div#form>input.number {
+div#form>input.number,
+div#form>select {
     width: 75%;
     float: right;
 }

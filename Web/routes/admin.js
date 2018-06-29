@@ -15,6 +15,27 @@ router.get('/', (req, res)=>{
 	})
 })
 
+router.post('/type', (req, res)=>{
+	var box = {id: req.body.code, Name: req.body.name}
+	switch (req.body.type) {
+	case 'add':
+		typeController.insert(box, ()=>{
+			res.redirect('/admin');
+		})
+		break;
+	case 'edit':
+		typeController.update(box, ()=>{
+			res.redirect('/admin');
+		})
+		break;
+	case 'del':
+		typeController.delete(box, ()=>{
+			res.redirect('/admin');
+		})
+	break;
+	}
+})
+
 router.get('/bill', (req, res)=>{
 	transactionsController.getAllStatus((status)=>{
 		transactionsController.getAll((transactions)=>{
@@ -70,11 +91,18 @@ router.get('/customer', (req, res)=>{
 	
 })
 
+router.post('/customer', (req, res)=>{
+	var box = {id: req.body.code, ban: req.body.banText, note: req.body.decribe}
+	customersController.update(box, ()=>{
+		res.redirect('/admin/customer');
+	})
+})
+
 router.get('/clothes', (req, res)=>{
 	typeController.getAll((type)=>{
 		productsController.getAll((products)=>{
 			var page = 1
-			var rowInPage = 4
+			var rowInPage = 5
 			if (req.param('p')) page = req.param('p')
 			var pageCount = Math.round(products.length / rowInPage + 0.5)
 			var pagination = {page: page, pageCount: pageCount}
@@ -82,6 +110,26 @@ router.get('/clothes', (req, res)=>{
 			res.render('admin/clothes', {
 				layout: "layoutAdmin",
 				products: products,
+				pagination: pagination,
+				type: type
+			})
+		})
+	})
+})
+
+router.post('/clothes', (req, res)=>{
+	typeController.getAll((type)=>{
+		productsController.search(req.body.text, (products)=>{
+			var page = 1
+			var rowInPage = 5
+			if (req.param('p')) page = req.param('p')
+			var pageCount = Math.round(products.length / rowInPage + 0.5)
+			var pagination = {page: page, pageCount: pageCount}
+			products = products.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
+			res.render('admin/clothes', {
+				layout: "layoutAdmin",
+				products: products,
+				pagination: pagination,
 				type: type
 			})
 		})

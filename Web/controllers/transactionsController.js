@@ -34,4 +34,16 @@ controller.getAllWithStatus = function(id, callback){
     })
 };
 
+controller.getById = function(id, callback){
+    models.Transaction
+    .findOne({
+        where: {id : id},
+        include: [models.Status, models.Customer, models.Product]
+    })
+    .then(function(transactions){
+        console.log(transactions);
+        callback(transactions);
+    })
+};
+
 module.exports = controller;

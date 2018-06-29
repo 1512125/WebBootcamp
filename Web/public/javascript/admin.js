@@ -49,29 +49,38 @@ AmCharts.makeChart("chartdiv", {
   }
 });
 
-
-n = new Date();
-res = n.getFullYear() + "-";
-m = n.getMonth() + 1;
-if (m < 10) res += '0';
-res += m + '-';
-d = n.getDate();
-if (d < 10) res += '0'
-res += d;
-document.getElementById("end").value = res;
-
 function filter(a) {
-  $('.buttonSubmit').hide();
+  console.log(a);
+  $('.submitbutton').hide();
   if (a == 0) {
-    $('#code')[0].value = '';
+    $('#code')[0].value = '<auto>';
     $('#name')[0].value = '';
     $('.butAdd').show();
   } else {
     a = '#col' + a;
-    var p = $('#a td');
-    $('#code')[0].value = p.children[0].innerText;;
-    $('#name')[0].value = p.children[1].innerText;
-    $('.butChange').show();    
+    var text = $(a + ' td');
+    $('#code')[0].value = text[0].innerText;;
+    $('#name')[0].value = text[1].innerText;
+    $('.butChange').show();
   }
   $('.add-cloth').show();
+}
+
+$(document).ready(function () {
+  n = new Date();
+  res = n.getFullYear() + "-";
+  m = n.getMonth() + 1;
+  if (m < 10) res += '0';
+  res += m + '-';
+  d = n.getDate();
+  if (d < 10) res += '0'
+  res += d;
+  document.getElementById("end").value = res;
+  $(".close").click(function () {
+    $(".add-cloth").hide();
+  });
+})
+
+function alert(string) {
+  confirm("Bạn có chắc muốn " + string + " loại áo");
 }

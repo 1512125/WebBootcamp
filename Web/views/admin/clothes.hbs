@@ -4,10 +4,10 @@
 <h2 id="title">Quản lý mẫu áo</h2>
 
 <section id="form">
-    <form id="search" class="form-inline">
+    <form method="POST" action="/admin/clothes" id="search" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
             <label for="input" class="sr-only">Search</label>
-            <input type="text" class="form-control" id="input" placeholder="Search" onkeyup="return search()">
+            <input type="text" class="form-control" id="input" placeholder="Search" name="text">
             <img class="icon" src="/images/icon/icon-search.png" alt="">
         </div>
 
@@ -36,7 +36,7 @@
     </div>
     {{/each}}
 </section>
-
+{{>pagination}}
 <div class="overlay add-cloth" style="display: none;">
     <div class="login-wrapper">
         <div class="login-content">
@@ -54,18 +54,20 @@
                 </div>
                 <div id="form">
                     <label for="code">Mã áo:</label>
-                    <input class="text" type="text" name="code" id="code">
+                    <input class="text" type="text" name="code" id="code" readonly>
                     <br>
                     <label for="name">Tên áo:</label>
                     <input class="text" type="text" name="name" id="name">
                     <br>
                     <label for="type">Loại áo:</label>
-                    <p>
-                        <input type="checkbox" name="type" id="t1">Áo nam &nbsp;&nbsp;
-                        <input type="checkbox" name="type" id="t2">Áo nữ</p>
-                    <p>
-                        <input type="checkbox" name="type" id="t3">Áo nhóm&nbsp;
-                        <input type="checkbox" name="type" id="t4">Áo cặp</p>
+                    <select class="custom-select" id="inputGroupSelect01" required>
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <br>
+                    <br>
                     <label for="price">Giá:</label>
                     <input class="text" type="number" name="price" id="price" step="1000">
                     <br>

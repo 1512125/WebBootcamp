@@ -12,6 +12,9 @@ function search() {
 function edit(e) {
     var id = '#customer' + e;
     var p = $(id);
+    $('#ban')[0].checked = p.data('ban');
+    $('#banText')[0].value = p.data('ban');
+    $('#decribe')[0].value = p.data('note');
     p = p[0].children;
     console.log(p);
     $('.image img').attr('src', $(p[0]).attr('src'));
@@ -33,3 +36,14 @@ function xlstring(s) {
 function exit() {
     $('.edit-customer').hide();
 }
+
+$(document).ready(function () {
+    $('input[name=ban]').change(function(){
+        if($(this).is(':checked')) {
+            $('#banText')[0].value = true;
+        } else {
+            $('#banText')[0].value = false;
+        }
+    });
+});
+
