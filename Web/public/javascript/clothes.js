@@ -40,7 +40,6 @@ function filter(a) {
         edit = true;
     }
     var p = $('.fashion')[a - 1];
-    console.log(p.className);
     
     $('#code')[0].value = $(p).data('code');
     $('#name')[0].value = p.children[1].innerText;

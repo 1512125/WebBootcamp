@@ -118,8 +118,30 @@ router.get('/clothes', (req, res)=>{
 })
 
 router.post('/clothes', (req, res)=>{
+	var box = {id: req.body.code, Name: req.body.name}
+	switch (req.body.type) {
+	case 'add':
+		productsController.insert(box, ()=>{
+			res.redirect('/admin/clothes');
+		})
+		break;
+	case 'edit':
+		productsController.update(box, ()=>{
+			res.redirect('/admin/clothes');
+		})
+		break;
+	case 'del':
+		productsController.delete(box, ()=>{
+			res.redirect('/admin/clothes');
+		})
+	break;
+	}
+})
+
+router.get('/clothes/:id', (req, res)=>{
 	typeController.getAll((type)=>{
-		productsController.search(req.body.text, (products)=>{
+		productsController.getAllWithType(req.params.id, (products)=>{
+			console.log(products)
 			var page = 1
 			var rowInPage = 5
 			if (req.param('p')) page = req.param('p')
@@ -128,25 +150,7 @@ router.post('/clothes', (req, res)=>{
 			products = products.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
 			res.render('admin/clothes', {
 				layout: "layoutAdmin",
-				products: products,
 				pagination: pagination,
-				type: type
-			})
-		})
-	})
-})
-
-router.get('/clothes/:id', (req, res)=>{
-	typeController.getAll((type)=>{
-		productsController.getAllWithType(req.params.id, (products)=>{
-			var page = 1
-			var rowInPage = 4
-			if (req.param('p')) page = req.param('p')
-			var pageCount = Math.round(products.length / rowInPage + 0.5)
-			var pagination = {page: page, pageCount: pageCount}
-			products = products.slice((pagination.page - 1) * rowInPage,  pagination.page * rowInPage)
-			res.render('admin/clothes', {
-				layout: "layoutAdmin",
 				products: products,
 				type: type
 			})

@@ -27,23 +27,23 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="inputName" class="control-label">Họ và tên:</label>
-                                    <input type="text" class="form-control" id="inputName">
+                                    <input type="text" class="form-control" id="inputName" value="{{userinfo.name}}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label for="inputEmail3" class="control-label">Email:</label>
-                                    <input type="email" class="form-control" id="inputEmail3">
+                                    <input type="email" class="form-control" id="inputEmail3" value="{{userinfo.email}}">
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="inputPhone3" class="control-label">Số điện thoại:</label>
-                                    <input type="text" class="form-control" id="inputPhone3">
+                                    <input type="text" class="form-control" id="inputPhone3"  value="{{userinfo.phonenumber}}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <label for="inputAddress3" class="control-label">Địa chỉ:</label>
-                                    <input type="email" class="form-control" id="inputAddress3">
+                                    <input type="email" class="form-control" id="inputAddress3" value= "{{userinfo.address}}">
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="inputCity3" class="control-label">Tỉnh/Thành phố:</label>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="btn-div">
-                                        <a href="#" class="btn btn-success pull-right">Cập nhật</a>
+                                        <a href="#" class="btn btn-success pull-right" onclick="change2()">Cập nhật</a>
                                     </div>
                                 </div>
                             </div>

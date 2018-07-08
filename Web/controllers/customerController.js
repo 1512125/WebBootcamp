@@ -2,6 +2,7 @@ var controller = {};
 var async = require('async')
 
 var models = require('../models');
+var bCrypt = require('bcrypt-nodejs');
 
 controller.getAll = function(callback){
     models.Customer
@@ -70,5 +71,39 @@ controller.update = function(box, callback){
         callback();
     })
 };
+
+controller.updateInfo = function(id, info, callback){
+    models.Customer
+    .update({
+        name: info.name,
+        address: info.address,
+        email: info.email,
+        phonenumber: info.phonenumber
+    }, {
+        where: {
+            id: id
+        }
+    })
+    .then(function(){
+        callback();
+    })
+};
+
+
+controller.updatePassword = function(id, info, callback){
+    let password = bCrypt.hashSync(info.password, bCrypt.genSaltSync(8), null);
+    models.Customer
+    .update({
+        password: password
+    }, {
+        where: {
+            id: id
+        }
+    })
+    .then(function(){
+        callback();
+    })
+};
+
 
 module.exports = controller;

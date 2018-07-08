@@ -25,6 +25,13 @@ router.get('/shop', (req, res) => {
     });
 });
 
+router.get('/shop/:id', (req, res)=>{
+    let id = req.params.id;
+    productsController.getById(id, (product) => {
+        res.render('client/productdetail', {product: product});
+    });
+})
+
 router.get('/design', (req, res) => {
     res.render('client/design', {
         layout: "layoutClient"
@@ -71,11 +78,37 @@ router.get('/modifyClient', isLoggedIn, (req, res) => {
 
 router.get('/modifyClient/:info', isLoggedIn, (req, res) => {
     var info = req.params.info;
+    var userid= req.session.user.id;
     info = JSON.parse(info);
     console.log(info);
-    res.render('client/modifyClient', {
-        userinfo: req.session.user, layout: "layoutClient"
-    });
+
+    customersController.updateInfo(userid, info, function(){
+        customersController.findById(userid, function(userinfo){
+            req.session.user = userinfo;
+            res.render('client/modifyClient', {
+                userinfo: userinfo, layout: "layoutClient"
+            });
+        })
+        
+    })
+    
+});
+
+router.get('/modifyClient/changPassword/:info', isLoggedIn, (req, res) => {
+    var info = req.params.info;
+    var userid= req.session.user.id;
+    info = JSON.parse(info);
+
+    customersController.updatePassword(userid, info, function(){
+        customersController.findById(userid, function(userinfo){
+            req.session.user = userinfo;
+            res.render('client/modifyClient', {
+                userinfo: userinfo, layout: "layoutClient"
+            });
+        })
+        
+    })
+    
 });
 
 function isLoggedIn(req, res, next) {

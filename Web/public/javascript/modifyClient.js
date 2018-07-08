@@ -9,3 +9,12 @@ function change1(){
     info = JSON.stringify(info);
     window.location.assign('/client/modifyClient/' + info)
 }
+
+function change2(){
+    var info ={
+        'password': $('#inputPassword3').val()
+    };
+
+    info = JSON.stringify(info);
+    window.location.assign('/client/modifyClient/changPassword/' + info)
+}

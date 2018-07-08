@@ -28,7 +28,6 @@ controller.getById = function(id, callback){
     models.Product
     .findOne({ 
         where: {id: id},
-        order: [['name', getOrder()]]
     })
     .then(function(product){
         callback(product);
@@ -37,7 +36,7 @@ controller.getById = function(id, callback){
 
  controller.getAllWithType = function(id, callback){
     models.Product
-    .findOne({ 
+    .findAll({ 
         where: {TypeId: id}
     })
     .then(function(product){
